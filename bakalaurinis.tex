@@ -1,0 +1,52 @@
+\documentclass[]{vgtuef}
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}
+\usepackage[lithuanian]{babel}
+
+\author{Tomas Fedosejev, Marius Buinevičius\\Vilniaus Gedimino technikos
+  universitetas\\Elektronikos fakultetas\\Elektroninių sistemų
+  katedra\\\texttt{tomas@fedosejev.lt}}
+\title{Bakalauro baigiamasis darbas\\Virtualios garso realybės sistema}
+
+
+\begin{document}
+
+\setcounter{page}{7}
+
+\onehalfspacing
+
+\tableofcontents
+
+
+\section*{Žymenys ir santrumpos}
+\addcontentsline{toc}{section}{Žymenys ir santrumpos}
+
+\begin{itemize}
+\item VRJ - Vertikali žemės reakcijos jėga (angl. Vertical Ground Reaction Force);
+\item PCA - principinė komponen (angl. Principal Component Analysis);
+\item LDA - linijinė disktriminanto analizė (angl. Linear Diskriminant Analysis);
+\end{itemize}
+
+
+\section{Įvadas. Užduoties analizė}
+
+Baigiamasis bakalaurinio baigiamojo darbo tema: „Virtuali garso realybės sistema“. Šiuo darbu siekiama ištirti galimybes bei sukurti realiuoju laiku veikiančia sistemą gebančią generuoti binauralinį garsą priklausomai nuo vartotojo galvos orientacijos ir virtualios aplinkos parametrų.
+Baigiamojo bakalaurinio darbo sistemos vartotojo sąsajos programinei įrangai reikalingi mažiausiai 20MB diskinio kaupiklio dalies talpos. Toks atminties kiekis reikalingas norint vartotojo sąsają padaryti patrauklesnę vartotojui, t.y. grafinės iliustracijos, garsai ir kt.
+Vartotojo sąsajos programinė įranga dirba Windows 7 operacinėje sistemoje, nes senesnės versijos \textit{(XP, Vista)} jau yra nebepalaikomos Microsoft korporacijos.
+\textit{USB} lizdo versija negali būti mažesnė nei 1.1, nes sistema suprojektuota darbui su šia ar aukštesnėmis versijomis. Duomenų perdavimą taipogi būtų galima realizuoti ir kitomis sąsajomis, tokiomis kaip \textit{COM}, bet tokiu atveju greitis būtų nepakankamas ir sistema įgautų netoleruotiną vėlinimą. Be to, binauralinio garso generavimo sistema yra šiuolaikinė ir labiau taikintina nešiojamiems kompiuteriams, kuriuose nebediegiami \textit{RS232} prievadai. Išlieka galimybė naudoti \textit{RS232} prievadą, bet tokiu atveju tektų papildomai turėti iš \textit{USB} į \textit{COM} keitiklio kabelį, kuris taip pat naudoja \textit{USB} jungtį. Todėl geriausias pasirinkimas spartos atžvilgiu rinktis virtualų \textit{COM} prievadą per \textit{USB} jungtį.
+Siekiant išlaikyti kuriamos sistemos kuo ilgesnį gyvavimo laiką be įkrovimo sistema toleruoja maksimalų 0,5 A srovės suvartojimą (tiek galvos orientacijos nustatymo įrenginys tiek garso apdorojimo įrenginys), be to 0,5 A tai didžiausia srovė kurią pagal specifikaciją gali atiduoti\textit{USB} 1.1 ir \textit{USB} 2.0 prievadai.
+Norint išlaikyti sistemos mobilumą, kurio didžioji dalis priklauso nuo galvos sekimo įrenginio dydžio, buvo pasirinkti pakankamai nedideli pastarojo įrenginio matmenys: 50 × 100 × 100 mm.  
+
+\section{Analogiškų sistemų apžvalga}
+
+Galvos sekimo įrenginio kūrimas nėra naujiena. Tokie įrenginiai naudojami norint nusakyti lėktuvų  trimatę poziciją. Pati \textit{sensor fusion} technologija taip pat jau gana ilgai naudojama aviacijos srityje, norint kur kas tiksliau nusakyti poziciją.
+Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai stipriai sumažėja. Tokio tipo projektų pasaulyje yra tik du. Projekto tikslai – binauralinio garso generavimas realiu laiku. Vienas iš projektų naudojo \textit{„Texas instruments“} pagamintą plokštę - C6713 DSK kuri pavaizduota 2.1 paveiksle. 
+
+\begin{figure}[!b]
+  \centering
+  \includegraphics[width=200px]{img/c6713.jpg}
+  \caption{C6713 DSK spausdintinė plokštė.}
+  \label{fig:C6713_dsk_board}
+\end{figure}
+
+\end{document}
