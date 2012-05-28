@@ -9,3 +9,5 @@
 \contentsline {subsection}{\numberline {3.4.}Tarpausinis garso lygi\IeC {\k u} skirtumas}{14}
 \contentsline {subsection}{\numberline {3.5.}HRTF metodo panaudojimas}{15}
 \contentsline {subsection}{\numberline {3.6.}Duplekso teorija}{15}
+\contentsline {subsection}{\numberline {3.7.}Kambario impulsinis atsakas}{19}
+\contentsline {subsection}{\numberline {3.8.}Skyriaus apibendrinimas}{20}

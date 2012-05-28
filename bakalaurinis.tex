@@ -52,7 +52,7 @@ Norint išlaikyti sistemos mobilumą, kurio didžioji dalis priklauso nuo galvos
 Galvos sekimo įrenginio kūrimas nėra naujiena. Tokie įrenginiai naudojami norint nusakyti lėktuvų  trimatę poziciją. Pati \textit{sensor fusion} technologija taip pat jau gana ilgai naudojama aviacijos srityje, norint kur kas tiksliau nusakyti poziciją.
 Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai stipriai sumažėja. Tokio tipo projektų pasaulyje yra tik du. Projekto tikslai – binauralinio garso generavimas realiu laiku. Vienas iš projektų naudojo \textit{„Texas instruments“} pagamintą plokštę - C6713 DSK kuri pavaizduota \ref{fig:C6713_dsk_board} pav.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=400px]{img/c6713.jpg}
   \caption{C6713 DSK spausdintinė plokštė.}
@@ -65,7 +65,7 @@ Kaip teigia gaminio kūrėjai, jie generuoja binauralinį garsą naudojant speci
 
 Kūrėjų teigimu, rezultatai jų stipriai nestebina – geriausias efektas jaučiamas tik garsui esant už galvos, nes panaudotos \textit{HRTF} funkcijos nėra pritaikytos jų ausims. Šio įrenginio testavimo akimirką demonstruoja \ref{fig:C6713_dsk_board_checkout} pav.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=400px]{img/c6713_patikra.jpg}
   \caption{C6713 DSK plokštės patikra.}
@@ -113,7 +113,7 @@ Pečių aidas - tai aidas atsirandantis garso bangom atsispindėjus nuo klausyto
 
 TLS nusako laiko skirtumą tarp garso bangų pakliuvusių į dešiniąją ir kairiąją ausis, \ref{fig:ITD_1} paveikslas vizualiai parodo šio efekto veikimą. TLS – tai pirminė garso lokalizacijos užuomina padedanti nusakyti garso šaltinio padėtį erdvėje. Kadangi ausys yra atskirtos viena nuo kitos, garso banga nukeliauja skirtingą kelia prieš pasiekiant kiekvieną iš ausų.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=150px]{img/ITD.jpg}
   \caption{TLS (angl. \textit{ITD}) efektas}
@@ -127,7 +127,7 @@ TGLS nusako garso stiprumo skirtumą tarp dviejų taškų (ausų). Šis reiškin
 
 Tačiau aukštų dažnių ruože difrakcija pasireiškia žymiai mažiau kas įtakoja žymiai didesni garso lygių skirtumą (\ref{fig:ILD_1} paveikslas). Kai kuriais atvejais garso lygių skirtumas gali sudaryti iki 20 dB. Todėl TGLS yra dažniausiai naudojamas aukšto dažnio garso bangoms, o TLS žemo dažnio bangų krypčiai nustatyti. 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \centering
   \includegraphics[width=150px]{img/ILD.jpg}
   \caption{TGLS (angl. \textit{ITD}) efektas}
@@ -141,10 +141,11 @@ Taipogi labai svarbi yra spektrinė dedamoji (angl. \textit{pinnae effect}). Dė
 
 Norint panaudoti šį metodą reikia turėti \textit{HRTF} rinkinį visiems vertikalių ir horizontalių kampų deriniams. Šiame darbe naudojami Masačiuseco technologijų instituto (angl. \textit{Massachusetts Institute of Technology}) 1994 metais atlikto projekto \textit{„KEMAR“} metu gauti universalūs \textit{HRTF} deriniai.
 
-Turint baigtinio ilgio skaitmeninį garso signalą atliekama diskrečioji sąsuka (angl. \textit{convolution}) pagal sekančią formulę:
+Turint baigtinio ilgio skaitmeninį garso signalą atliekama diskrečioji sąsuka (angl. \textit{convolution}) pagal \ref{equ:conv_1} formulę:
 
 \begin{equation}
 (f * g)[n] = \sum_{m=0}^{\infty} f[m]*g[n-m]=\sum_{m=0}^{\infty} f[n-m]*g[n]
+  \label{equ:conv_1}
 \end{equation}
 
 čia $f$ – vieno kanalo baigtinio ilgio daugianaris (angl. \textit{polynomial}), $g$ – atitinkamo kanalo \textit{HRTF} funkcija (išreikšta daugianariu), $n$ – daugianario narių skaičius.
@@ -159,13 +160,75 @@ Duplekso teorija, pateikta Lordo Reilėjaus (Lord Rayleigh), pateikia paaiškini
 
 Duplekso teorija teigia, kad TLS naudojamas žemo dažnio garso šaltinio lokalizacijai, o TGLS – aukšto dažnio. Kadangi natūralus garsas sudarytas ne tik iš žemo dažnio komponenčių, bet ir aukšto dažnio, tai klausos sistema turės panaudoti abi metodikas (tiek TLS tiek TGLS), norint tiksliai nustatyti garso šaltinio vietą. Šios dupleksinės sistemos rezultatas – ji gali taip pat generuoti taip vadinamus „garso lokalizacijos užuominų mainų“  arba „laiko intensyvumo mainų“ dirgiklius ausinėse, kur TLS, nukreiptas į kairiąją ausinių pusę, perstumtas per TGLS, kuris savo ruoštu nukreiptas į dešiniąją ausinių dalį, todėl garsas suvokiamas lyg sklistų iš vidurio. Kaip ir visos teorijos, duplekso teorija taip pat susiduria su problemomis. Pastaroji negali iki galo paaiškinti kryptingo girdėjimo, o taip pat išlieka priekinio-galinio garso šaltinio padėties girdimumo problema. Taip pat ši teorija apima tik horizontaliąją garso šaltinio lokalizaciją aplink galvą. Dar vienas teorijos netikslumas – neatsižvelgimas į ausies kaušelio formą lokalizacijos paaiškinime.
 
-1938 metais Vudvortas atliko eksperimentą, kuriame iš pilnavidurio rutulio buvo sumodeliuota žmogaus galva. Su šiuo modeliu buvo matuojami LS kaip kampo su vertikalia plokštuma funkcija skirtingiems dažniams. Šiame galvos modelyje tarpas tarp dviejų ausų buvo apie 22-23 cm. Pirminiai testo rezultatai parodė, kad didžiausias laiko tarpas per kurį garsas patenka iš vienos ausies į kitą buvo apie 660 μs, kai garso šaltinis buvo padėtas lygiai 90O kampu vertikalios plokštumos atžvilgiu. Šis laiko tarpas koreliuojasi su 1500 Hz dažnio garso bangos ilgiu. Rezultatai parodė, jog grojant garsui, kurio dažnis mažesnis nei 1500 Hz bangos ilgis yra didesnis negu minėtojo didžiausio laiko tarpo. Taigi rezultatai parodo, jog tarp garso bangų patenkančių į ausis atsiranda fazių skirtumas ir tai sukuria akustinės lokalizacijos užuominas. Garso dažniui artėjant prie 1500 Hz garso bangos ilgis yra panašus į natūralų garso vėlavimą. Dėl galvos dydžio ir tarpo tarp ausų yra sumažėjęs fazių skirtumas, taigi iš karto atsiranda lokalizacijos paklaida. Garso dažniui esant didesniam nei 1500 Hz garso bangos ilgis tampa mažesnis nei atstumas tarp ausų, tuomet atsiranda „galvos šešėlis“ ir GLS suteikia garso lokalizacijos užuominų.
+1938 metais Vudvortas atliko eksperimentą, kuriame iš pilnavidurio rutulio buvo sumodeliuota žmogaus galva. Su šiuo modeliu buvo matuojami LS kaip kampo su vertikalia plokštuma funkcija skirtingiems dažniams. Šiame galvos modelyje tarpas tarp dviejų ausų buvo apie 22-23 cm. Pirminiai testo rezultatai parodė, kad didžiausias laiko tarpas per kurį garsas patenka iš vienos ausies į kitą buvo apie 660 μs, kai garso šaltinis buvo padėtas lygiai 90$^\circ$ kampu vertikalios plokštumos atžvilgiu. Šis laiko tarpas koreliuojasi su 1500 Hz dažnio garso bangos ilgiu. Rezultatai parodė, jog grojant garsui, kurio dažnis mažesnis nei 1500 Hz bangos ilgis yra didesnis negu minėtojo didžiausio laiko tarpo. Taigi rezultatai parodo, jog tarp garso bangų patenkančių į ausis atsiranda fazių skirtumas ir tai sukuria akustinės lokalizacijos užuominas. Garso dažniui artėjant prie 1500 Hz garso bangos ilgis yra panašus į natūralų garso vėlavimą. Dėl galvos dydžio ir tarpo tarp ausų yra sumažėjęs fazių skirtumas, taigi iš karto atsiranda lokalizacijos paklaida. Garso dažniui esant didesniam nei 1500 Hz garso bangos ilgis tampa mažesnis nei atstumas tarp ausų, tuomet atsiranda „galvos šešėlis“ ir GLS suteikia garso lokalizacijos užuominų.
 
-Feddersen et al. taip pat atliko eksperimentus (1957 metais), kuriais jis matavo kaip kinta LS keičiant garsiakalbio kampą su vertikaliąja plokštuma aplink galvą esant skirtingiems dažniams. Bet jo eksperimentai skyrėsi nuo „Woodworth“ tuo, kad Feddersen‘as atliko tyrimus su realiai žmonėmis, o ne su galvos modeliais. Testo rezultatai sutapo su „Woodworth“ gautais rezultatais. Tyrimo rezultatai taip pat parodė, kad nėra jokio LS skirtumo tarp dviejų garso šaltinio pozicijų – kai garso šaltinis yra prie žmogaus galvą (90) ir už galvos (180). Tokie rezultatų paaiškinimas – garso šaltinio atstumas iki ausų yra vienodas abiem atvejais. Laiko skirtumas keičiasi tik garso šaltiniui keliaujant aplink galvą. Šiuo testu įrodyta, kad didžiausias laiko skirtumas – 660 μs gaunamas garso šaltinį padėjus 90 kampu prie vienos ausies.
+Feddersen et al. taip pat atliko eksperimentus (1957 metais), kuriais jis matavo kaip kinta LS keičiant garsiakalbio kampą su vertikaliąja plokštuma aplink galvą esant skirtingiems dažniams. Bet jo eksperimentai skyrėsi nuo \textit{„Woodworth“} tuo, kad Feddersen‘as atliko tyrimus su realiai žmonėmis, o ne su galvos modeliais. Testo rezultatai sutapo su „Woodworth“ gautais rezultatais. Tyrimo rezultatai taip pat parodė, kad nėra jokio LS skirtumo tarp dviejų garso šaltinio pozicijų – kai garso šaltinis yra prie žmogaus galvą (90$degree$) ir už galvos (180$^\circ$). Tokie rezultatų paaiškinimas – garso šaltinio atstumas iki ausų yra vienodas abiem atvejais. Laiko skirtumas keičiasi tik garso šaltiniui keliaujant aplink galvą. Šiuo testu įrodyta, kad didžiausias laiko skirtumas – 660 μs gaunamas garso šaltinį padėjus 90$^\circ$ kampu prie vienos ausies.
 
 \ref{fig:ITD_1} pav. matoma, jog kelio skirtumas nuo garso šalinio iki kiekvienos ausies yra skirtingas. Garso kelias iki kairės ausies yra didesnis nei kelias iki dešinės ausies. Šis garso kelių skirtumas perkeltas į lauko ašį nusako tarpausinį laiko skirtumą (ang. \textit{ITD}, trump. LS).
 LS yra dominuojanti užuomina dažniams iki 1.5 kHz (imtinai). Visiems kitiems dažniams didesniems nei 1.5 kHz dominuojanti užuomina yra tarpausinis garso lygio skirtumas (ang. \textit{ILD}, trump. GLS). Tarpausinis garso lygio skirtumas atsiranda dėl taip vaidinamojo galvos šešėlio. Jis atsiranda tik prie aukštesnių dažnių, kuomet garso bangos nebesukelia difrakcijos aplink galvą, taip sukurdamos galvos šešėlį, kuris panašus į šešėlį susidarantį krentant šviesos bangoms link galvos.
-Norint įrodyti Lordo Reileigo teoriją, buvo atliktas eksperimentas, kuriame garso šaltinį ir manekeno galvą skyrė 1,75 m. Eksperimentas atliktas beaidėje aplinkoje. Jį atliko Levisas Skotas Diamondas (\textit{Lewis Scott Diamond}).  Naudojant skirtingo dažnio – 125 kHz, 250 kHz, 500 kHz ir 1000 kHz programa Csound sugeneruotus garsus, kai garso signalo šaltinis buvo padėtas skirtingais kampais – 0, 10, 30, 50, 70, 90, pavyko įrodyti šią teoriją.
+Norint įrodyti Lordo Reileigo teoriją, buvo atliktas eksperimentas, kuriame garso šaltinį ir manekeno galvą skyrė 1,75 m. Eksperimentas atliktas beaidėje aplinkoje. Jį atliko Levisas Skotas Diamondas (\textit{Lewis Scott Diamond}).  Naudojant skirtingo dažnio – 125 kHz, 250 kHz, 500 kHz ir 1000 kHz programa Csound sugeneruotus garsus, kai garso signalo šaltinis buvo padėtas skirtingais kampais – 0$^\circ$, 10$^\circ$, 30$^\circ$, 50$^\circ$, 70$^\circ$, 90$^\circ$, pavyko įrodyti šią teoriją.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=250px]{img/100kHz_grynas.png}
+  \caption{100 kHz grynojo tono gauto manekeno galvoje oscilograma (viršuje – kairioji ausis, apačioje – dešinioji}
+  \label{fig:100kHz_grynas}
+\end{figure}
+
+\ref{fig:100kHz_grynas} pav. matomi grafikai atvaizduoja manekeno galvoje esančių mikrofonų parodymus esant garso šaltinio skleidžiamam garsui, kurio dažnis siekė 1000 kHz ir atstumas iki jo – apie 1,75 m. Viršutinėje \ref{fig:100kHz_grynas} pav. dalyje – kairiosios ausies mikrofono parodymai, apatinėje dalyje – dešiniosios. Iš \ref{fig:100kHz_grynas} paveikslo matome, jog tarp abiejų mikrofonų parodymų susidaro fazių skirtumas, taip pat apatinėje paveikslėlio dalyje matomas atsiradęs vėlavimas lyginant su kairiosios ausies mikrofono grafiku. Pilno signalo tarpausinis laiko skirtumas siekė 0,735 ms, ir tai yra didžiausias pasiekiamas laiko skirtumas, nes manekeno galvos priekinė dalis buvo statmena garso signalo šaltiniui.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=250px]{img/TLS_degree.png}
+  \caption{Tarpausinio laiko skirtumo priklausomybė nuo garso kritimo kampo.}
+  \label{fig:TLS_degree}
+\end{figure}
+
+0,735 ms laiko skirtumas gali būti per didelis tarpausiniam laiko skirtumui, nes „maksimalus tarpausinis laiko skirtumas gali siekti tik 0,66 ms standartiniam žmogaus galvos dydžiui“. Taip teigiama 5-tame „Computational Auditory Scene Analysis“ knygos (išleista 2005 m) skyriuje pavadinimu „Binauralinio garso lokalizacija“. Knygos autoriai - DeLiang Wang ir Guy J. Brown. Kiti šaltiniai teigia, jog 90$^\circ$ kampo garso šaltinio padėtis prieš manekeno galvą gali sukurti 0,7 ms tarpausinį laiko skirtumą. Pastarasis straipsnis – „Binauralinė klausa“ autoriaus dr. Ruth Y. Litovsky parašytas 2008 m. Šis straipsnis parodo, jog skirtumai tarp vidutinių žmogaus galvų dydžių sudaro maksimalaus tarpausinio laiko skirtumo vertės netikrumus. Jei ši vertė tampa per didelė, tai reiškia, kad mikrofonus reikia įdėti giliau į manekeno galvą, taip norint sumažinti atstumą tarp abiejų mikrofonų.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=150px]{img/125kHz_TGLS.png}
+  \caption{Tarpausinis garso lygio skirtumas esant 125 kHz dažniui, kai garso šaltinio kampas manekeno galvos atžvilgiu siekia 90$^\circ$}
+  \label{fig:125kHz_TGLS}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=150px]{img/1000kHz_TGLS.png}
+  \caption{Tarpausinis garso lygio skirtumas esant 1 MHz dažniui, kai garso šaltinio kampas manekeno galvos atžvilgiu siekia 90$^\circ$}
+  \label{fig:1000kHz_TGLS}
+\end{figure}
+
+Iš \ref{fig:125kHz_TGLS} ir \ref{fig:1000kHz_TGLS} pav. matome, jog lyginant du skirtingo dažnio garsus (125 kHz ir 1000 kHz), kai garso bangos kritimo kampas siekia 90$^\circ$, susidaro tarpausinio garso lygių skirtumas. Kaip ir buvo minėta, esant aukštesniems dažniams nei 1,5 kHz, tarpausinis laiko skirtumas tampa labai mažas ir tuomet dominuoja tarpausinis garso lygių skirtumas. Fizikinis šio fenomeno paaiškinimas būtų toks, kad esant aukštesniems dažniams, garso bangos sutankėja ir jų galimybė persilenkti aplink galvą stipriai sumažėja. Esant skirtingiems objektų dydžiams ir skirtingiems garso bangų dažniams išlieka difrakcinė priklausomybė, bet šiuo atveju tai negalioja, nes naudojama standartinė vidutinio žmogaus galvos dydžio manekeno galva. Be abejo išlieka minimalūs skirtumai, nes kiekvieno žmogaus galva turi savo unikalią formą ir dydį, o tai sukuria skirtingą šešėlinį dažnį, bet galima sakyti, jog šis skirtumas yra nykstamai mažas.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=150px]{img/ITD_freq.png}
+  \caption{Tarpausinio laiko skirtumo priklausomybė dažnio esant skirtingiems garso bangos kritimo kampams (0$^\circ$ - 90$^\circ$)}
+  \label{fig:ITD_freq}
+\end{figure}
+
+
+\subsection{Kambario impulsinis atsakas}
+
+Kambario Impulsinis Atsakas (sutrumpintai \textit{KIA}, angl. \textit{RIR – Room Impulse Response}) – tai yra laiko domeno signalas parodantis dažnių pasiskirstymą ir amplitudės mažėjimą. Naudojant KIA daroma prielaida jog kambario erdvė yra stabili ir linijinė, laikui bėgant nekintanti sistema.
+
+KIA inkapsuliuoja sekančius parametrus:
+\begin{enumerate}
+\item Garso signalo vėlinimą (angl. \textit{propagation delay}) – atstumas laike kurį garsas nukeliauja nuo garso šaltinio iki klausytojo.
+\item Tiesioginį garsą (angl. \textit{direct sound}) – tiesioginis garsas atitinką maksimumą kuris nusako trumpiausią atstumą nuo garso šaltinio iki klausytojo.
+\item Ankstyvuosius atspindžius (angl. \textit{early reflections}) – pirmos eilės (dažniausiai atspindį nuo grindų arba lubų), antrosios ir kitų eilių atspindžius.\item Aido liekamąją dalį (angl. \textit{reverberation tail}) – tai stochastinė aido dalis kurioje yra didelis atspindžių kiekis kurie nebegali būti suskirstyti į ankstyvuosius atspindžius.  
+\item Pradinio Vėlinimo Atotrūkis (PVA, angl. \textit{ITDG – Initial Time Delay Gap}) – tai laikas tarp į klausytojo klausos sistemą atvykusio tiesioginio garso ir pirmojo ankstyvojo atspindžio (dažniausiai atsispindėjusio ne nuo grindų). Dažnai norint išvengti papildomų skaičiavimų paprastas signalo vėlinimas yra panaudojamas PVA imituoti.
+\end{enumerate}
+
+Šiame darbe yra panaudotas supaprastintas KIA modelis, darant prielaidą jog garso bangą sudaro baigtinis skaičius spindulių sklindančių tiesia linija visomis kryptimis. Ši prielaida yra klaidinga tačiau tokiu būdu yra ženkliai sumažinamas skaičiavimų kiekis kas savo ruožtu leidžia taikyti KIA modelį realiuoju laiku veikiančiame įrenginyje neturinčiame ypač didelių skaičiavimo galimybių. Priešingu atveju nepriėmus anksčiau minėtos prielaidos KIA generavimas tampa labai sudėtingas ir negali būti taikomas realaus laiko binauralinio garso generavimui.
+
+
+\subsection{Skyriaus apibendrinimas}
+
+Šiame skyriuje buvo paminėti pagrindiniai metodai susiję su binauraliniu garsu. Minimaliam binauraliniam efektui gauti pakanka tik \textit{HRTF} filtrų, bet kaip patvirtina atlikti bandymai - šis efektas nėra labai įtikinantis ir natūralus. Tačiau jei prieš panaudojant \textit{HRTF} funkcijas garso signale yra užkoduojama kambario akustinė informacija, binauralinio garso efektas tampa panašesnis į realiame pasaulyje susidarančius garsus. 
+Darbo metu sukurta garso apdorojimo sistema išnaudoja šiame skyriuje aprašytus metodus sukuriant pakankamai įtikinantį binauralinį efektą.
 
 
 
