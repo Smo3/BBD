@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.5.27)  28 MAY 2012 23:16
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.5.27)  29 MAY 2012 00:02
 entering extended mode
 **bakalaurinis.tex
 (C:\Users\Tomas\Documents\GitHub\BBD\bakalaurinis.tex
@@ -1049,6 +1049,18 @@ LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line
 13.
 LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
 13.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+15.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+15.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+15.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+16.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+16.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+16.
 )
 \tf@toc=\write4
 LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
@@ -1542,7 +1554,7 @@ Package pdftex.def Info: img/CO_HEADER-eps-converted-to.pdf used on input line
 LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
 234.
 LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
-241.
+239.
 Package epstopdf Info: Source file: <img/CE_HEADER.eps>
 (epstopdf)                    date: 2012-05-26 10:37:36
 (epstopdf)                    size: 23181 bytes
@@ -1551,27 +1563,83 @@ Package epstopdf Info: Source file: <img/CE_HEADER.eps>
 (epstopdf)                    size: 6035 bytes
 (epstopdf)             Command: <epstopdf --outfile=img/CE_HEADER-eps-converted
 -to.pdf img/CE_HEADER.eps>
-(epstopdf)             \includegraphics on input line 241.
+(epstopdf)             \includegraphics on input line 239.
 Package epstopdf Info: Output file is already uptodate.
 File: img/CE_HEADER-eps-converted-to.pdf Graphic file (type pdf)
  <use img/CE_HEADER-eps-converted-to.pdf>
 Package pdftex.def Info: img/CE_HEADER-eps-converted-to.pdf used on input line 
-241.
+239.
 (pdftex.def)             Requested size: 483.0pt x 11.5774pt.
  [21]
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+239.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+243.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+245.
+
+<img/schema.png, id=80, 462.97969pt x 435.87843pt>
+File: img/schema.png Graphic file (type png)
+ <use img/schema.png>
+Package pdftex.def Info: img/schema.png used on input line 247.
+(pdftex.def)             Requested size: 301.1261pt x 283.50385pt.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+248.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+248.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+250.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+250.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+262.
+Package epstopdf Info: Source file: <img/CO_HEADER.eps>
+(epstopdf)                    date: 2012-05-26 10:37:36
+(epstopdf)                    size: 22629 bytes
+(epstopdf)             Output file: <img/CO_HEADER-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-26 10:37:36
+(epstopdf)                    size: 5990 bytes
+(epstopdf)             Command: <epstopdf --outfile=img/CO_HEADER-eps-converted
+-to.pdf img/CO_HEADER.eps>
+(epstopdf)             \includegraphics on input line 262.
+Package epstopdf Info: Output file is already uptodate.
+File: img/CO_HEADER-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/CO_HEADER-eps-converted-to.pdf>
+Package pdftex.def Info: img/CO_HEADER-eps-converted-to.pdf used on input line 
+262.
+(pdftex.def)             Requested size: 483.0pt x 11.5774pt.
+ [22 <C:/Users/Tomas/Documents/GitHub/BBD/img/schema.png>]
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+263.
+LaTeX Font Info:    Failed loading font information for L7x+ptm. on input line 
+276.
+Package epstopdf Info: Source file: <img/CE_HEADER.eps>
+(epstopdf)                    date: 2012-05-26 10:37:36
+(epstopdf)                    size: 23181 bytes
+(epstopdf)             Output file: <img/CE_HEADER-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-26 10:37:36
+(epstopdf)                    size: 6035 bytes
+(epstopdf)             Command: <epstopdf --outfile=img/CE_HEADER-eps-converted
+-to.pdf img/CE_HEADER.eps>
+(epstopdf)             \includegraphics on input line 276.
+Package epstopdf Info: Output file is already uptodate.
+File: img/CE_HEADER-eps-converted-to.pdf Graphic file (type pdf)
+ <use img/CE_HEADER-eps-converted-to.pdf>
+Package pdftex.def Info: img/CE_HEADER-eps-converted-to.pdf used on input line 
+276.
+(pdftex.def)             Requested size: 483.0pt x 11.5774pt.
+ [23]
 (C:\Users\Tomas\Documents\GitHub\BBD\bakalaurinis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 24549 strings out of 494045
- 493572 string characters out of 3155641
- 612608 words of memory out of 3000000
- 27281 multiletter control sequences out of 15000+200000
+ 24555 strings out of 494045
+ 493677 string characters out of 3155641
+ 612605 words of memory out of 3000000
+ 27286 multiletter control sequences out of 15000+200000
  42952 words of font info for 91 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  70i,14n,76p,1441b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1583,9 +1651,9 @@ fb><C:/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/MiKTeX/fonts/type1/public/lm
 blic/lm/lmr8.pfb><C:/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/MiKTeX/fonts/typ
 e1/public/lm/lmri12.pfb><C:/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/MiKT
 eX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on bakalaurinis.pdf (15 pages, 548094 bytes).
+Output written on bakalaurinis.pdf (17 pages, 569584 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
+ 124 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
