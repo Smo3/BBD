@@ -16,3 +16,4 @@
 \contentsline {subsection}{\numberline {4.2.}Jutikli\IeC {\k u} duomen\IeC {\k u} sintez\IeC {\.e}s filtras}{22}
 \contentsline {subsection}{\numberline {4.3.}Garso apdorojimo mechanizmas}{24}
 \contentsline {subsection}{\numberline {4.4.}Galvos sekimo \IeC {\k i}renginys}{26}
+\contentsline {subsection}{\numberline {4.5.}Binaurainio garso efekto mechanizmo algoritmas}{28}
