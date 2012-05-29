@@ -37,10 +37,10 @@
 
 \section{Įvadas. Užduoties analizė}
 
-Darbo tema yra "Virtualios garso realybės sistema". Šiuo metu virtualio ir papildytos realybės programinė įranga yra toli pažengusi, tačiau garso generacijai taip ir toliau naudojamas stereo garsas, kuriuo nėra įmanoma tiksliai atkurti aplinkos garsus.
-Šiuo darbu siekiama ištirti galimybes sukurti realiuoju laiku veikiančia sistemą gebančią generuoti binauralinį garsą priklausomai nuo vartotojo galvos orientacijos ir virtualios aplinkos akustinių parametrų. Sistema yra suskirtyta į tris pagrindines dalis: galvos sekimo įrenginį - kuris seka vartotojo galvos orientaciją; programą asmeniniame kompiuteryje - kuri siunčia virtualios aplinkos duomenis ir garso šaltinio skleidžiamą garsą; garso apdorojimo įrenginį - kuris apjungia informaciją gautą iš galvos sekimo įrenginio bei asmeninio kompiuterio ir sugeneruoja binauralinį garsą. Tokia architektūra buvo pasirinka dėl modulinės struktūros, be to perkėlus garso generavimą į atskirą įrenginį, atlaisvinamas asmeninio kompiuterio centrinis procesorius, ko pasekoje virtualiai aplinkai sukurti lieka daugiau asmeninio kompiuterio resursų.
+Darbo tema yra „virtualios garso realybės sistema“. Šiuo metu virtualio ir papildytos realybės programinė įranga yra toli pažengusi, tačiau garso generacijai taip ir toliau naudojamas stereo garsas, kuriuo nėra įmanoma tiksliai atkurti aplinkos garsų.
+Šiuo darbu siekiama ištirti galimybes sukurti realiuoju laiku veikiančia sistemą gebančią generuoti binauralinį garsą priklausomai nuo vartotojo galvos orientacijos ir virtualios aplinkos akustinių parametrų. Sistema yra suskirstyta į tris pagrindines dalis: galvos sekimo įrenginys - kuris seka vartotojo galvos orientaciją; programa asmeniniame kompiuteryje - kuri siunčia virtualios aplinkos duomenis ir garso šaltinio skleidžiamą garsą; garso apdorojimo įrenginys - kuris apjungia informaciją gautą iš galvos sekimo įrenginio bei asmeninio kompiuterio ir sugeneruoja binauralinį garsą. Tokia architektūra buvo pasirinka dėl modulinės struktūros, be to perkėlus garso generavimą į atskirą įrenginį, atlaisvinamas asmeninio kompiuterio centrinis procesorius, ko pasekoje virtualiai aplinkai sukurti lieka daugiau asmeninio kompiuterio resursų.
 Pradiniai bandymai bus atlikti \textit{Matlab} terpėje, kas leis įsitikinti sistemos įgyvendinimo galimybėmis, bei duos progą patobulinti naudojamus procesus.
-Virtualios garso realybės tema buvo pasirinkta dėl savo prespektyvumo, nors binauralinis garsas pradėtas tirti pakankamai seniai, realiai veikiančių įrenginių nėra sukurta. Tema yra aktuali žaidimų ir medicinos pramonei.
+Virtualios garso realybės tema buvo pasirinkta dėl savo perspektyvumo, nors binauralinis garsas pradėtas tirti pakankamai senai, realiai veikiančių įrenginių nėra sukurta. Tema yra aktuali žaidimų ir medicinos pramonei.
 Didžiausia sistemos problema slypi HRTF (angl. \textit{Head Related Transfer Functions}) panaudojime, kadangi HRTF deriniai turi būti pritaikyti individualiai kiekvienam klausytojui. Tačiau panaudojus papildomus procesus garso generavimo eigoje, pamėginta sumažinti HRTF neigiamą įtaką.
 Darbo eigoje bus sukurta pilnai veikianti sistema gebanti kuo tiksliau atkurti virtualią akustinę aplinką, programinė įranga bus parašyta garso apdorojimo, galvos orientacijos įrenginiams, bei asmeniniam kompiuteriui. Taip pat bus suprojektuoti abu naudojami įrenginiai.
 Baigiamojo bakalaurinio darbo sistemos asmeninio kompiuterio programinei įrangai reikalingi mažiausiai 20MB diskinio kaupiklio dalies talpos. Toks atminties kiekis reikalingas norint vartotojo sąsają padaryti patrauklesnę vartotojui, t.y. grafinės iliustracijos, garsai ir kt. Asmeniniame kompiuteryje programinė įranga dirba Windows 7 operacinėje sistemoje, nes senesnių operacinių sistemų versijų (XP, Vista) Microsoft korporacijos palaikymas bus nutraukiamas artimiausiu metu.
@@ -55,25 +55,25 @@ Sistemos veikimas bus vertinamas sugeneruoto binauralinio garso tikslumu (palygi
 Šiame skyriuje bus apžvelgtos analogiškos sistemos: buvę prototipai ir šiuo metu esami rinkoje produktai. Apibendrintai bus aptarti nagrinėjamų sistemų teigiamos ir neigiamos savybės. 
 
 
-Galvos sekimo įrenginio kūrimas nėra naujiena. Tokie įrenginiai naudojami norint nusakyti lėktuvų  trimatę poziciją. Pati \textit{sensor fusion} technologija taip pat jau gana ilgai naudojama aviacijos srityje, norint kur kas tiksliau nusakyti poziciją.
-Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai stipriai sumažėja. Tokio tipo projektų pasaulyje yra tik du. Projekto tikslai – binauralinio garso generavimas realiu laiku. Vienas iš projektų naudojo \textit{„Texas instruments“} pagamintą plokštę - C6713 DSK kuri pavaizduota \ref{fig:C6713_dsk_board} pav.
+Galvos sekimo įrenginio kūrimas nėra naujiena. Tokie įrenginiai naudojami norint nustatyti lėktuvų  trimatę poziciją. Pati \textit{sensor fusion} technologija taip pat jau gana ilgai naudojama aviacijos srityje, norint kur kas tiksliau nustatyti poziciją.
+Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai stipriai sumažėja. Tokio tipo projektų pasaulyje yra tik du. Projekto tikslas – binauralinio garso generavimas realiu laiku. Vienas iš projektų naudojo \textit{„Texas instruments“} pagamintą plokštę - C6713 DSK kuri pavaizduota \ref{fig:C6713_dsk_board} pav.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=400px]{img/c6713.jpg}
+  \includegraphics[width=390px]{img/c6713.jpg}
   \caption{C6713 DSK spausdintinė plokštė.}
   \label{fig:C6713_dsk_board}
 \end{figure}
 
-Šios plokštės mikrovaldiklis dirba 225 MHz dažniu ir pasiekiantis 1800 milijonų instrukcijų per sekundę spartą. Taip pat ši plokštė gali apdoroti aukštos kokybės 24 bitų skaitmeminį stereo garsą, turi 512 kB \textit{Flash} bei 16 MB \textit{SDRAM} atmintis. \textit{JTAG}\footnote{JTAG - Programavimo ir testavimo jungtis.} prieinamas per \textit{USB} jungtį.
+Šios plokštės mikrovaldiklis dirba 225 MHz dažniu ir pasiekia 1800 milijonų instrukcijų per sekundę spartą. Taip pat ši plokštė gali atkurti aukštos kokybės 24 bitų skaitmeminį stereo garsą, turi 512 kB \textit{Flash} bei 16 MB \textit{SDRAM} atminties. \textit{JTAG}\footnote{JTAG - Programavimo ir testavimo jungtis.} prieinamas per \textit{USB} jungtį.
 
-Kaip teigia gaminio kūrėjai, jie generuoja binauralinį garsą naudojant specialų stereo filtrą suprogramuotą minėtoje plokštėje. Programinė įranga naudoja nuo galvos priklausančias impulso atsako funkcijas sugeneruotas \textit{„Floridos tarptautinio universiteto“} asmenų (nepaminėta kieno). Dviejų kanalų išėjimui panaudotos 12 \textit{HRTF} funkcijų, kurios taip pat nebuvo sugeneruotos projekto autorių. 
+Kaip teigia gaminio kūrėjai, jie generuoja binauralinį garsą naudojant specialų stereo filtrą suprogramuotą minėtoje plokštėje. Programinė įranga naudoja HRTF sugeneruotas \textit{„Floridos tarptautinio universiteto“} asmenų (nepaminėta kieno). Dviejų kanalų išėjimui panaudotos 12 \textit{HRTF} funkcijų, kurios taip pat nebuvo sugeneruotos projekto autorių. 
 
 Kūrėjų teigimu, rezultatai jų stipriai nestebina – geriausias efektas jaučiamas tik garsui esant už galvos, nes panaudotos \textit{HRTF} funkcijos nėra pritaikytos jų ausims. Šio įrenginio testavimo akimirką demonstruoja \ref{fig:C6713_dsk_board_checkout} pav.
 
 \begin{figure}[!ht]
   \centering
-  \includegraphics[width=400px]{img/c6713_patikra.jpg}
+  \includegraphics[width=390px]{img/c6713_patikra.jpg}
   \caption{C6713 DSK plokštės patikra.}
   \label{fig:C6713_dsk_board_checkout}
 \end{figure}
@@ -81,7 +81,7 @@ Kūrėjų teigimu, rezultatai jų stipriai nestebina – geriausias efektas jau�
 
 Kompiuterinis binauralinio garso generavimas yra įmanomas, bet reikalauja didelių kompiuterio resursų, taip atimdamas galią iš centrinio procesoriaus, todėl kuriamos išorinės garso plokštės, kurios nepriklausomai nuo kompiuterio procesoriaus gali generuoti binauralinį garsą naudojant \textit{HRTF} funkcijas.
 
-Pirmoji garso rinkoje pasirodęs produktas galėjęs pasiūlyti trimatį pozicinį garso generavimą buvo 1998 išleista \textit{„Aureal Vortex via the A3D API“} garso plokštė. Deja nėra  galimybės jos išbandyti, bet pagal vartotojų atsiliepimus ši plokštė sugebėdavo gana gerai suformuoti trimačio garso pojūtį. Kadangi įmonė \textit{„Aureal“} pasitraukė iš rinkos, tai jos poziciją perėmė \textit{„Creative Inc.“} firma. Gerą garso kokybę bei neblogą trimačio garso efektą gali pasiūlyti tik labai brangios pastarosios įmonės garso plokštės – \textit{„X-Fi“}. 
+Pirmoji garso rinkoje pasirodęs produktas, galėjęs pasiūlyti trimatį pozicinį garso generavimą, buvo 1998 išleista \textit{„Aureal Vortex via the A3D API“} garso plokštė. Deja nėra  galimybės jos išbandyti, bet pagal vartotojų atsiliepimus ši plokštė sugebėdavo gana gerai suformuoti trimačio garso pojūtį. Kadangi įmonė \textit{„Aureal“} pasitraukė iš rinkos, tai jos poziciją perėmė \textit{„Creative Inc.“} firma. Gerą garso kokybę bei neblogą trimačio garso efektą gali pasiūlyti tik labai brangios pastarosios įmonės garso plokštės – \textit{„X-Fi“}. 
 
 Šiuo metu binauralinio garso generavimas realiu laiku priklausomas nuo vartotojo galvos pozicijos neturi jokių analogų. Kaip ir buvo minėta, atskirai abi dalys yra daugiau ar mažiau naudojamos pasaulinėje rinkoje, bet būtent šių dviejų sričių sujungimas yra visiškai unikalus, todėl analogiškų sistemų apžvalga čia yra neįmanoma.
 
@@ -94,7 +94,7 @@ Kaip buvo minėta apžvalgoje sistema pasiūlytame pavidale yra unikali ir persp
 \subsection{HRTF funkcijos}
 
 \textit{HRTF} (angl. \textit{Head Related Transfer Function}) dar vadinamos \textit{ATF} (angl. \textit{Anatomical Time Difference}) tai funkcijos nusakančios atsaką kurį kuris charakterizuoja, kaip žmogaus ausis priima garsą sklindantį iš tam tikro taško erdvėje. Panaudojus \textit{HRTF} porą, skirta kiekvienai ausiai, įmanoma sintezuoti binauralinį garsą taip sukuriant erdvės pojūtį.  
-Žmogaus smegenys apskaičiuoja garso šaltinio poziciją erdvėje naudojantis: 1) garso užuominomis atkeliavusiomis į kiekvieną ausį (angl. \textit{monoaural cues}), 2) abiejų ausų garso užuominų palyginimu (angl. \textit{difference cues} arba \textit{binaural cues}). Pagrindinės garso užuominos yra:
+Žmogaus smegenys apskaičiuoja garso šaltinio poziciją erdvėje naudojantis: 1) garso užuominomis, atkeliavusiomis į kiekvieną ausį (angl. \textit{monoaural cues}), 2) abiejų ausų garso užuominų palyginimu (angl. \textit{difference cues} arba \textit{binaural cues}). Pagrindinės garso užuominos yra:
 \begin{enumerate}
 \item Tarpausinis laiko skirtumas (angl. \textit{Interaural Time Difference})
 \item Tarpausinis garso lygių skirtumas (angl. \textit{Interaural Level Difference})
