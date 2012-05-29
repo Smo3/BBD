@@ -70,7 +70,7 @@
 \lstset{
   language=Matlab,
   basicstyle=\footnotesize,
-  numbers=none
+  numbers=left
 }
 
 % COLORS

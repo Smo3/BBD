@@ -3,6 +3,7 @@
 \usepackage[L7x]{fontenc}
 \usepackage[lithuanian]{babel}
 
+
 \author{Tomas Fedosejev, Marius Buinevičius\\Vilniaus Gedimino technikos
   universitetas\\Elektronikos fakultetas\\Elektroninių sistemų
   katedra\\\texttt{tomas@fedosejev.lt}}
@@ -292,7 +293,7 @@ Madgwicko filtre orientacijai nusakyti naudojami kvaternionai\footnote{Kvaternio
 \begin{equation}
 _{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
 \end{bmatrix} = \begin{bmatrix}
-\emph{cos}\frac{\theta}{2} & -r_{x}\emph{sin}\frac{\theta}{2} & -r_{y}\emph{sin}\frac{\theta}{2} & -r_{z}\emph{sin}\frac{\theta}{2}
+\cos\frac{\theta}{2} & -r_{x}\sin\frac{\theta}{2} & -r_{y}\sin\frac{\theta}{2} & -r_{z}\sin\frac{\theta}{2}
 \end{bmatrix}
 \label{quaterion_1}
 \end{equation}
@@ -439,6 +440,84 @@ a_{ijk}= \left\{
 \label{equ:unit_impulse_resp_funct}
 \end{equation}
 
+Šiame žingsnyje gaunama aibė atspindžių kurioje kiekvienas atspindys turi impulsą lygu 1, kai $u_{ijk}=0$. Tikrasis garso bangos impulsas mažėja priklausomai nuo atstumo tarp šaltinio ir kliūčių pakeliui. Sekantys žingsniai ištaiso šią problemą. Garso impulsas yra atvirkščiai proporcingas atstumui tarp garso šaltinio ir klausytojo \ref{equ:unit_impulse_resp_corrected}.
 
+\begin{equation}
+b_{ijk}	\sim\frac{1}{d_{ijk}}
+\label{equ:unit_impulse_resp_corrected}
+\end{equation}
+
+Kitas svarbus parametras yra garso atspindžio atsispindėjimų skaičius. Jei visų sienų atspindžių koeficientai vienodi, galima paimti atspindžio koeficientą $r_{w}$ keliant laipsniu $n$, kur $n$ yra bendras atspindžių skaičius gauname $n=|i|+|j|+|k|$. Taigi atsispindėjimų skaičiui apskaičiuoti taikytina formulė \ref{equ:atspindziu_sk}:
+
+\begin{equation}
+r_{ijk}	= r_{w}^{|i|+|j|+|k|}
+\label{equ:atspindziu_sk}
+\end{equation}
+
+Taigi kad gauti pilnąjį signalo impulsą, reikia sudauginti \ref{equ:unit_impulse_resp_corrected} ir \ref{equ:atspindziu_sk} formules, taip gaunama formulė \ref{equ:full_impulse}).
+
+\begin{equation}
+e_{ijk}	= b_{ijk} r_{ijk}
+\label{equ:full_impulse}
+\end{equation}
+
+Paskutinis žingsnis kambario impulsinio atsako skaičiavime yra sumavimas pagal \ref{equ:RIA_sum} formulę:
+
+\begin{equation}
+h(t) = \sum_{i=-n}^{n}\sum_{j=-n}^{n}\sum_{k=-n}^{n} a_{ijk} e_{ijk}
+\label{equ:RIA_sum}
+\end{equation}
+
+Pateiktas \textit{Matlab} paketo išeities kodo fragmentas \ref{code:RIA_gen} skirtas generuoti šiame poskyryje aprašytą kambario impulsinį atsaką.
+
+\begin{cfigure}
+  \centering
+  \caption{KIA generavimo \textit{Matlab} funkcija}
+  \label{code:RIA_gen}
+  \lstinputlisting{sources/RIA.m}
+\end{cfigure}
+
+\newpage
+\subsection{Realios sistemos specifikacija}
+
+Šiame poskyryje bus aptartas ir aprašytas realus įrenginys pagrįstas ankščiau aprašytomis teorijomis. Reali sistema susideda iš programines ir elektronikos dalių.
+
+\ref{fig:headtracker_schematic} paveiksle matoma galvos orientacijos sekimo įrenginio mikrovaldiklinė dalis. Įrenginiui valdyti panaudotas 8 bitų mikrovaldiklis \textit{ATMEL ATMEGA8 TQFP32} korpuse. Šioje įrenginio schemos dalyje matomas pats mikrovaldiklis, programavimo sąsaja bei išvesties jungtys. Taktinis mikrovaldiklio darbo dažnis – 16 MHz.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=390px]{img/headtracker_schematic.png}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės – principinės schemos mikrovaldiklio dalis}
+  \label{fig:headtracker_schematic}
+\end{figure}
+
+Tai yra maksimalus įmanomas (teorinis) \textit{ATMEGA8} taktinis darbo dažnis. Šį dažnį generuoja kvarcinis rezonatorius, o pastarojo darbo stabilumui palaikyti naudojami mažos talpos kondensatoriai jungiami nuosekliai su kvarciniu rezonatoriumi ir įžeminimu. Išvesties jungtys \textit{ATM\_RX} ir \textit{ATM\_TX} naudojamos kaip \textit{RS232} sąsaja su \textit{Bluetooth} moduliu. \textit{SDA} ir \textit{SCL} – \textit{I2C}  sąsaja su jutiklių spausdintine plokšte.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=200px]{img/head_tracker_sender.png}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės – principinės schemos siųstuvinė-imtuvinė dalis}
+  \label{fig:headtracker_sender}
+\end{figure}
+
+\ref{fig:headtracker_sender} paveiklėlyje matome galvos orientacijos sekimo įrenginio siųstuvinę-imtuvinę dalį, kurią sudaro \textit{Bluetooth} modulis \textit{BTM-222}, Šmito trigeris bei įtampų daliklis R5-R6. Pats \textit{BTM-222} modulis veikia per \textit{RS232} sąsają, todėl juo naudotis gana paprasta. Šmito trigeris čia naudojamas dėl tos pačios priežasties, kaip ir įtampų daliklis – suderinti skirtingus loginių įtampų lygius. Kadangi mikrovaldiklis veikia naudojant 5 V maitinimą, o Bluetooth modulis – 3,3 V, taigi norint šiems dviems įrenginiams keistis duomenimis, reikalinga suderinti skirtingus įtampų lygius. Kai duomenys siunčiami iš mikrovaldiklio (su 5 V loginiais lygiais), tai 3,3 V loginį lygį užtikrina įtampų daliklis R5-R6. Duomenims keliaujant priešinga linkme, įtampų lygių suderinamumą užtikrina Šmito trigeris.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=390px]{img/head_tracker_stabilizer.png}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės – principinės schemos maitinimo įtampos stabilizavimo dalis}
+  \label{fig:headtracker_stabilizer}
+\end{figure}
+
+\ref{fig:headtracker_stabilizer} pav. matoma galvos orientacijos sekimo įrenginio maitinimo šaltinio principinė – elektrinė schema. Ji susideda iš dviejų įtampos stabilizatorių:  \textit{LM1117MPX-5.0} bei \textit{LM1117IMP-3.3}. Abi stabilizatoriai stabilizuoja įėjimo įtampą atitinkamai – 5 V ir 3.3 V. Nepriekaištingam jų veikimui reikalingi filtro kondensatoriai jungiami lygiagrečiai su neigiamu šaltinio poliumi tiek prieš reguliatorius tiek už jų. Įtampos stabilumas ypatingai svarbus žinant, jog mikrovaldiklis dirba gana aukštu dažniu – 16 MHz. Kaip ir buvo minėta anksčiau, 5 V maitinimo įtampa naudojama mikrovaldiklio daliai, o 3.3 V – \textit{Bluetooth} moduliui.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=390px]{img/head_tracker_links.png}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės principinės schemos fizinių sąsąjų dalis}
+  \label{fig:headtracker_links}
+\end{figure}
+
+\ref{fig:headtracker_links} pav. pavaizduotos schemos dalyje matomos fizinės išvesties-įvesties jungtys bei Šmito trigerio mikroschemos nepanaudotų kojelių pajungimas į žemę. Pastarasis veiksmas atliekamas, nes taip pataria specifikacinis mikroschemos aprašas. \textit{POLOLU EXT} jungtis atsako už mikrovaldiklio ir jutiklinės plokščių sujungimą \textit{I2C} sąsaja, bei užtikrina 5 V maitinomo įtampą jutiklinei spausdinintei plokštei. \textit{RX} ir \textit{TX} jungtys – tai trumpikliai, kurie leidžia pasirinkti dvejopą plokštės veikimą – išorinė \textit{RS232} sąsaja skirta klaidų tikrinimui ir \textit{Bluetooth} modulio konfigūravimui. Antras veikimo būdas – mikrovaldiklio tiesioginė sąsaja su \textit{Bluetooth} moduliu. Ir paskutinė jungtis –\textit{ EXT. CONFIG} ir yra jungtis skirta vienam iš \textit{RS-232} sąsajos veikimo būdui.
 
 \end{document}
