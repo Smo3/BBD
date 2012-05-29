@@ -23,16 +23,16 @@
 \addcontentsline{toc}{section}{Žymenys ir santrumpos}
 
 \begin{itemize}
-\item MARG - Magnetinis laukas, kampinis pagreitis ir laisvojo kritimo pagreičio vektorius (angl. \textit{Magnetic, Angular Rate, and Gravity})
-\item HRTF - su galva susijusios perdavimo funkcijos (angl. \textit{Head Related Transfer Function}).
-\item ATF - anatominė perdavimo funkcija (angl. \textit{Anatomical Transfer Function}).
-\item FFTF - (angl. \textit{Field-Free Transfer Function}).
-\item RIR - kambario impulsinis atsakas (angl. \textit{Room Impulse Response}).
-\item HRIR - (angl. \textit{Head Related Impulse Response}).
-\item ITD - tarpausinis laiko skirtumas (angl. \textit{Interaural Time Difference}).
-\item ILD - tarpausinis garso lygių skirtumas (angl. \textit{Initial Level Difference}).
-\item USB - universalioji nuoseklioji jungtis (angl. \textit{Universal Serial Bus}).
-\item COM - RS232 nuoseklusis prievadas.
+\item MARG -- Magnetinis laukas, kampinis pagreitis ir laisvojo kritimo pagreičio vektorius (angl. \textit{Magnetic, Angular Rate, and Gravity})
+\item HRTF -- su galva susijusios perdavimo funkcijos (angl. \textit{Head Related Transfer Function}).
+\item ATF -- anatominė perdavimo funkcija (angl. \textit{Anatomical Transfer Function}).
+\item FFTF -- (angl. \textit{Field-Free Transfer Function}).
+\item RIR -- kambario impulsinis atsakas (angl. \textit{Room Impulse Response}).
+\item HRIR -- (angl. \textit{Head Related Impulse Response}).
+\item ITD -- tarpausinis laiko skirtumas (angl. \textit{Interaural Time Difference}).
+\item ILD -- tarpausinis garso lygių skirtumas (angl. \textit{Initial Level Difference}).
+\item USB -- universalioji nuoseklioji jungtis (angl. \textit{Universal Serial Bus}).
+\item COM -- RS232 nuoseklusis prievadas.
 
 \end{itemize}
 
@@ -40,7 +40,7 @@
 
 Darbo tema yra „virtualios garso realybės sistema“. Šiuo metu virtuali ir papildytos realybės programinė įranga yra toli pažengusi, tačiau garso generacijai taip ir toliau naudojamas stereo garsas, kuriuo nėra įmanoma tiksliai atkurti aplinkos garsų.
 
-Šiuo darbu siekiama ištirti galimybes sukurti realiuoju laiku veikiančia sistemą gebančią generuoti binauralinį garsą priklausomai nuo vartotojo galvos orientacijos ir virtualios aplinkos akustinių parametrų. Sistema yra suskirstyta į tris pagrindines dalis: galvos sekimo įrenginys - kuris seka vartotojo galvos orientaciją; programa asmeniniame kompiuteryje - kuri siunčia virtualios aplinkos duomenis ir garso šaltinio skleidžiamą garsą; garso apdorojimo įrenginys - kuris apjungia informaciją gautą iš galvos sekimo įrenginio bei asmeninio kompiuterio ir sugeneruoja binauralinį garsą. Tokia architektūra buvo pasirinka dėl modulinės struktūros, be to perkėlus garso generavimą į atskirą įrenginį, atlaisvinamas asmeninio kompiuterio centrinis procesorius, ko pasėkoje virtualiai aplinkai sukurti lieka daugiau asmeninio kompiuterio resursų.
+Šiuo darbu siekiama ištirti galimybes sukurti realiuoju laiku veikiančia sistemą gebančią generuoti binauralinį garsą priklausomai nuo vartotojo galvos orientacijos ir virtualios aplinkos akustinių parametrų. Sistema yra suskirstyta į tris pagrindines dalis: galvos sekimo įrenginys -- kuris seka vartotojo galvos orientaciją; programa asmeniniame kompiuteryje -- kuri siunčia virtualios aplinkos duomenis ir garso šaltinio skleidžiamą garsą; garso apdorojimo įrenginys -- kuris apjungia informaciją gautą iš galvos sekimo įrenginio bei asmeninio kompiuterio ir sugeneruoja binauralinį garsą. Tokia architektūra buvo pasirinka dėl modulinės struktūros, be to perkėlus garso generavimą į atskirą įrenginį, atlaisvinamas asmeninio kompiuterio centrinis procesorius, ko pasėkoje virtualiai aplinkai sukurti lieka daugiau asmeninio kompiuterio resursų.
 
 Pradiniai bandymai bus atlikti \textit{Matlab} terpėje, kas leis įsitikinti sistemos įgyvendinimo galimybėmis, bei duos progą patobulinti naudojamus procesus.
 
@@ -68,7 +68,7 @@ Sistemos veikimas bus vertinamas sugeneruoto binauralinio garso tikslumu (palygi
 
 Galvos sekimo įrenginio kūrimas nėra naujiena. Tokie įrenginiai naudojami norint nustatyti lėktuvų  trimatę poziciją. Pati \textit{sensor fusion} technologija taip pat jau gana ilgai naudojama aviacijos srityje, norint kur kas tiksliau nustatyti poziciją.
 
-Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai stipriai sumažėja. Tokio tipo projektų pasaulyje yra tik du. Projekto tikslas – binauralinio garso generavimas realiu laiku. Vienas iš projektų naudojo \textit{„Texas instruments“} pagamintą plokštę - C6713 DSK kuri pavaizduota \ref{fig:C6713_dsk_board} pav.
+Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai stipriai sumažėja. Tokio tipo projektų pasaulyje yra tik du. Projekto tikslas – binauralinio garso generavimas realiu laiku. Vienas iš projektų naudojo \textit{„Texas instruments“} pagamintą plokštę -- C6713 DSK kuri pavaizduota \ref{fig:C6713_dsk_board} pav.
 
 \begin{figure}[!ht]
   \centering
@@ -77,7 +77,7 @@ Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai s
   \label{fig:C6713_dsk_board}
 \end{figure}
 
-Šios plokštės mikrovaldiklis dirba 225 MHz dažniu ir pasiekia 1800 milijonų instrukcijų per sekundę spartą. Taip pat ši plokštė gali atkurti aukštos kokybės 24 bitų skaitmeninį stereo garsą, turi 512 kB \textit{Flash} bei 16 MB \textit{SDRAM} atminties. \textit{JTAG}\footnote{JTAG - Programavimo ir testavimo jungtis.} prieinamas per \textit{USB} jungtį.
+Šios plokštės mikrovaldiklis dirba 225 MHz dažniu ir pasiekia 1800 milijonų instrukcijų per sekundę spartą. Taip pat ši plokštė gali atkurti aukštos kokybės 24 bitų skaitmeninį stereo garsą, turi 512 kB \textit{Flash} bei 16 MB \textit{SDRAM} atminties. \textit{JTAG}\footnote{JTAG -- Programavimo ir testavimo jungtis.} prieinamas per \textit{USB} jungtį.
 
 Kaip teigia gaminio kūrėjai, jie generuoja binauralinį garsą naudojant specialų stereo filtrą suprogramuotą minėtoje plokštėje. Programinė įranga naudoja HRTF sugeneruotas \textit{„Floridos tarptautinio universiteto“} asmenų (nepaminėta kieno). Dviejų kanalų išėjimui panaudotos 12 \textit{HRTF} funkcijų, kurios taip pat nebuvo sugeneruotos projekto autorių. 
 
@@ -97,7 +97,7 @@ Pirmoji garso rinkoje pasirodęs produktas, galėjęs pasiūlyti trimatį pozici
 
 Šiuo metu binauralinio garso generavimas realiu laiku priklausomas nuo vartotojo galvos pozicijos neturi jokių analogų. Kaip ir buvo minėta, atskirai abi dalys yra daugiau ar mažiau naudojamos pasaulinėje rinkoje, bet būtent šių dviejų sričių sujungimas yra visiškai unikalus, todėl analogiškų sistemų apžvalga čia yra neįmanoma.
 
-Kaip buvo minėta apžvalgoje sistema pasiūlytame pavidale yra unikali ir perspektyvi. Šiuo metu rinkoje nėra įrenginių gebančių sugeneruoti bunauralinį garsą priklausomai nuo klausytojo galvos orientacijos. Rinkoje esantys analogai suteikia programuotojams galimybę įgyvendinti šį efektą naudojantis papildomais programiniais įrankiais, tačiau įrenginių gebančių tai padaryti savaime, be papildomo programuotojų įsikišimo - nėra.
+Kaip buvo minėta apžvalgoje sistema pasiūlytame pavidale yra unikali ir perspektyvi. Šiuo metu rinkoje nėra įrenginių gebančių sugeneruoti bunauralinį garsą priklausomai nuo klausytojo galvos orientacijos. Rinkoje esantys analogai suteikia programuotojams galimybę įgyvendinti šį efektą naudojantis papildomais programiniais įrankiais, tačiau įrenginių gebančių tai padaryti savaime, be papildomo programuotojų įsikišimo -- nėra.
 
 \section{Naudojamų metodų apžvalga}
 \label{sect:naudojami_metodai}
@@ -125,7 +125,7 @@ Kaip buvo minėta apžvalgoje sistema pasiūlytame pavidale yra unikali ir persp
 
 Galvos šešėlis arba dar kitaip vadinamas akustiniu šešėliu, tai sumažėjusios garso amplitudės regionas atsirandantis, nes galva sugeria arba sumažina amplitudę dalies ją pasiekusių garso bangų. Pasiekusi galvą garso banga gali keliauti aplink arba per galvą, kad pasiektų ausį esančią priešingoje pusėje. Tokiu būdu yra sukuriamas pakankamai geras pirminės lokalizacijos filtras. Ausį esančią šešėlyje garsas pasiekia maždaug 0,7 ms vėliau, ko pasėkoje žmogaus smegenys sugeba nustatyti apytikslią garso sklidimo kryptį. 
 
-Pečių aidas - tai aidas atsirandantis garso bangom atsispindėjus nuo klausytojo pečių. Toks aidas tiesiogiai turi mažai lokalizacijos informacijos tačiau sudėjus kartu su galvos šešėliu filtras dar labiau patikslėja.
+Pečių aidas -- tai aidas atsirandantis garso bangom atsispindėjus nuo klausytojo pečių. Toks aidas tiesiogiai turi mažai lokalizacijos informacijos tačiau sudėjus kartu su galvos šešėliu filtras dar labiau patikslėja.
 
 
 \subsection{Tarpausinis laiko skirtumas}
@@ -153,7 +153,7 @@ Tačiau aukštų dažnių ruože difrakcija pasireiškia žymiai mažiau kas įt
   \label{fig:ILD_1}
 \end{figure}
 
-Taipogi labai svarbi yra spektrinė dedamoji (angl. \textit{pinnae effect}). Dėl kompleksinės ir asimetrinės ausies kriauklės formos garsas atsispindėjęs nuo ausies kriauklės spektriškai pasikeičia.  Kartu su pečių atspindžio efektu tai formuoja filtrą turintį krypties priklausomybę ir todėl ne taip kaip TLS ir TGLS yra įmanoma atskirti garsus sklindančius iš priekio ir iš galo. Dėl spektrinių pokyčių ši dedamoji geriausiai tinka atskirti plačiajuostį garsą - viršijantį 6 kHz dažnį.
+Taipogi labai svarbi yra spektrinė dedamoji (angl. \textit{pinnae effect}). Dėl kompleksinės ir asimetrinės ausies kriauklės formos garsas atsispindėjęs nuo ausies kriauklės spektriškai pasikeičia.  Kartu su pečių atspindžio efektu tai formuoja filtrą turintį krypties priklausomybę ir todėl ne taip kaip TLS ir TGLS yra įmanoma atskirti garsus sklindančius iš priekio ir iš galo. Dėl spektrinių pokyčių ši dedamoji geriausiai tinka atskirti plačiajuostį garsą -- viršijantį 6 kHz dažnį.
 
 
 \subsection{HRTF metodo panaudojimas}
@@ -179,7 +179,7 @@ Duplekso teorija, pateikta Lordo Reilėjaus (Lord Rayleigh), pateikia paaiškini
 
 Duplekso teorija teigia, kad TLS naudojamas žemo dažnio garso šaltinio lokalizacijai, o TGLS – aukšto dažnio. Kadangi natūralus garsas sudarytas ne tik iš žemo dažnio komponenčių, bet ir aukšto dažnio, tai klausos sistema turės panaudoti abi metodikas (tiek TLS tiek TGLS), norint tiksliai nustatyti garso šaltinio vietą. Šios dupleksinės sistemos rezultatas – ji gali taip pat generuoti taip vadinamus „garso lokalizacijos užuominų mainų“  arba „laiko intensyvumo mainų“ dirgiklius ausinėse, kur TLS, nukreiptas į kairiąją ausinių pusę, perstumtas per TGLS, kuris savo ruoštu nukreiptas į dešiniąją ausinių dalį, todėl garsas suvokiamas lyg sklistų iš vidurio. Kaip ir visos teorijos, duplekso teorija taip pat susiduria su problemomis. Pastaroji negali iki galo paaiškinti kryptingo girdėjimo, o taip pat išlieka priekinio-galinio garso šaltinio padėties girdimumo problema. Taip pat ši teorija apima tik horizontaliąją garso šaltinio lokalizaciją aplink galvą. Dar vienas teorijos netikslumas – neatsižvelgimas į ausies kaušelio formą lokalizacijos paaiškinime.
 
-1938 metais Vudvortas atliko eksperimentą, kuriame iš pilnavidurio rutulio buvo sumodeliuota žmogaus galva. Su šiuo modeliu buvo matuojami TLS kaip kampo su vertikalia plokštuma funkcija skirtingiems dažniams. Šiame galvos modelyje tarpas tarp dviejų ausų buvo apie 22 - 23 cm. Pirminiai šio eksperimento rezultatai parodė, kad didžiausias laiko tarpas, per kurį garsas patenka iš vienos ausies į kitą, buvo apie 660 μs, kai garso šaltinis buvo padėtas lygiai 90$^\circ$ kampu vertikalios plokštumos atžvilgiu. Šis laiko tarpas susidaro, kai garso bangos dažnis siekia 1500 Hz. Rezultatai parodė, jog grojant garsui, kurio dažnis mažesnis nei 1500 Hz bangos ilgis yra didesnis negu minėtojo didžiausio laiko tarpo. Taigi rezultatai parodo, jog tarp garso bangų, patenkančių į ausis, atsiranda fazių skirtumas ir tai sukuria akustinės lokalizacijos užuominas. Garso dažniui artėjant prie 1500 Hz, garso bangos ilgis yra panašus į natūralų garso vėlavimą. Dėl galvos dydžio ir tarpo tarp ausų yra sumažėjęs fazių skirtumas, taigi iš karto atsiranda lokalizacijos paklaida. Garso dažniui esant didesniam nei 1500 Hz, garso bangos ilgis tampa mažesnis nei atstumas tarp ausų, tuomet atsiranda „galvos šešėlis“   ir GLS suteikia garso lokalizacijos užuominų.
+1938 metais Vudvortas atliko eksperimentą, kuriame iš pilnavidurio rutulio buvo sumodeliuota žmogaus galva. Su šiuo modeliu buvo matuojami TLS kaip kampo su vertikalia plokštuma funkcija skirtingiems dažniams. Šiame galvos modelyje tarpas tarp dviejų ausų buvo apie 22 -- 23 cm. Pirminiai šio eksperimento rezultatai parodė, kad didžiausias laiko tarpas, per kurį garsas patenka iš vienos ausies į kitą, buvo apie 660 μs, kai garso šaltinis buvo padėtas lygiai 90$^\circ$ kampu vertikalios plokštumos atžvilgiu. Šis laiko tarpas susidaro, kai garso bangos dažnis siekia 1500 Hz. Rezultatai parodė, jog grojant garsui, kurio dažnis mažesnis nei 1500 Hz bangos ilgis yra didesnis negu minėtojo didžiausio laiko tarpo. Taigi rezultatai parodo, jog tarp garso bangų, patenkančių į ausis, atsiranda fazių skirtumas ir tai sukuria akustinės lokalizacijos užuominas. Garso dažniui artėjant prie 1500 Hz, garso bangos ilgis yra panašus į natūralų garso vėlavimą. Dėl galvos dydžio ir tarpo tarp ausų yra sumažėjęs fazių skirtumas, taigi iš karto atsiranda lokalizacijos paklaida. Garso dažniui esant didesniam nei 1500 Hz, garso bangos ilgis tampa mažesnis nei atstumas tarp ausų, tuomet atsiranda „galvos šešėlis“   ir GLS suteikia garso lokalizacijos užuominų.
 
 Feddersen et al. atliko eksperimentus (1957 metais), kuriais jis matavo, kaip kinta LS, keičiant garsiakalbio kampą aplink galvą su vertikaliąja plokštuma, esant skirtingiems dažniams. Bet jo eksperimentai skyrėsi nuo „Woodworth“ tuo, kad Feddersen atliko tyrimus su realiais žmonėmis, o ne su galvos modeliais. Šio eksperimento rezultatai sutapo su Vudvorto gautais rezultatais. Tyrimo rezultatai taip pat parodė, kad nėra jokio TLS skirtumo tarp dviejų garso šaltinio pozicijų – kai garso šaltinis yra priešais galvą (0$^\circ$) ir už galvos (180$^\circ$). Tokių rezultatų paaiškinimas – garso šaltinio atstumas iki ausų yra vienodas abiem atvejais. Laiko skirtumas keičiasi tik garso šaltiniui keliaujant aplink galvą. Šiuo ekperimentu įrodyta, kad didžiausias laiko skirtumas yra 660 μs ir jis gaunamas, garso šaltinį padėjus šalia ausies. \ref{fig:ITD_1} paveiksle pavaizduotas galvos modelis ir garso šaltinio skleidžiamų garso bandų kryptis ir susidarantis kampas.
 
@@ -225,7 +225,7 @@ Iš \ref{fig:125kHz_TGLS} ir \ref{fig:1000kHz_TGLS} pav. matome, jog lyginant du
 \begin{figure}[!h]
   \centering
   \includegraphics[width=300px]{img/ITD_freq.png}
-  \caption{Tarpausinio laiko skirtumo priklausomybė dažnio esant skirtingiems garso bangos kritimo kampams (0$^\circ$ - 90$^\circ$)}
+  \caption{Tarpausinio laiko skirtumo priklausomybė dažnio esant skirtingiems garso bangos kritimo kampams (0$^\circ$ -- 90$^\circ$)}
   \label{fig:ITD_freq}
 \end{figure}
 
@@ -248,7 +248,7 @@ KIA inkapsuliuoja sekančius parametrus:
 
 \subsection{Skyriaus apibendrinimas}
 
-Šiame skyriuje buvo paminėti pagrindiniai metodai susiję su binauraliniu garsu. Minimaliam binauraliniam efektui gauti pakanka tik \textit{HRTF} filtrų, bet kaip patvirtina atlikti bandymai - šis efektas nėra labai įtikinantis ir natūralus. Tačiau jei prieš panaudojant \textit{HRTF} funkcijas garso signale yra užkoduojama kambario akustinė informacija, binauralinio garso efektas tampa panašesnis į realiame pasaulyje susidarančius garsus. 
+Šiame skyriuje buvo paminėti pagrindiniai metodai susiję su binauraliniu garsu. Minimaliam binauraliniam efektui gauti pakanka tik \textit{HRTF} filtrų, bet kaip patvirtina atlikti bandymai -- šis efektas nėra labai įtikinantis ir natūralus. Tačiau jei prieš panaudojant \textit{HRTF} funkcijas garso signale yra užkoduojama kambario akustinė informacija, binauralinio garso efektas tampa panašesnis į realiame pasaulyje susidarančius garsus. 
 Darbo metu sukurta garso apdorojimo sistema išnaudoja šiame skyriuje aprašytus metodus sukuriant pakankamai įtikinantį binauralinį efektą.
 
 \section{Sistemos kūrimas}
@@ -320,7 +320,7 @@ Taipogi kvaternioną galima išreikšti pasukimo matricos pavidalu \ref{equ:rota
 
 Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio sistemos kampais arba atliekant operacijas susijusias su kampais. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu dėl anksčiau minėto ašių užsiblokavimo. 
 
-Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reikalingi du rėmai, pirmasis atskaitos rėmas (angl. \textit{reference frame}) antrasis - sistemos rėmas. Šiame darbe rėmu A (atskaitos rėmas) bus laikoma žemė, o rėmas B – galvos orientacijos įrenginys (sistemos rėmas).
+Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reikalingi du rėmai, pirmasis atskaitos rėmas (angl. \textit{reference frame}) antrasis -- sistemos rėmas. Šiame darbe rėmu A (atskaitos rėmas) bus laikoma žemė, o rėmas B – galvos orientacijos įrenginys (sistemos rėmas).
 
 \begin{figure}[htbp]
   \centering
@@ -527,6 +527,101 @@ Tai yra maksimalus įmanomas (teorinis) \textit{ATMEGA8} taktinis darbo dažnis.
   \label{fig:headtracker_links}
 \end{figure}
 
-\ref{fig:headtracker_links} pav. pavaizduotos schemos dalyje matomos fizinės išvesties-įvesties jungtys bei Šmito trigerio mikroschemos nepanaudotų kojelių pajungimas į žemę. Pastarasis veiksmas atliekamas, nes taip pataria specifikacinis mikroschemos aprašas. \textit{POLOLU EXT} jungtis atsako už mikrovaldiklio ir jutiklinės plokščių sujungimą \textit{I2C} sąsaja, bei užtikrina 5 V maitinomo įtampą jutiklinei spausdinintei plokštei. \textit{RX} ir \textit{TX} jungtys – tai trumpikliai, kurie leidžia pasirinkti dvejopą plokštės veikimą – išorinė \textit{RS232} sąsaja skirta klaidų tikrinimui ir \textit{Bluetooth} modulio konfigūravimui. Antras veikimo būdas – mikrovaldiklio tiesioginė sąsaja su \textit{Bluetooth} moduliu. Ir paskutinė jungtis –\textit{ EXT. CONFIG} ir yra jungtis skirta vienam iš \textit{RS-232} sąsajos veikimo būdui.
+\ref{fig:headtracker_links} pav. pavaizduotos schemos dalyje matomos fizinės išvesties-įvesties jungtys bei Šmito trigerio mikroschemos nepanaudotų kojelių pajungimas į žemę. Pastarasis veiksmas atliekamas, nes taip pataria specifikacinis mikroschemos aprašas. \textit{POLOLU EXT} jungtis atsako už mikrovaldiklio ir jutiklinės plokščių sujungimą \textit{I2C} sąsaja, bei užtikrina 5 V maitinomo įtampą jutiklinei spausdinintei plokštei. \textit{RX} ir \textit{TX} jungtys – tai trumpikliai, kurie leidžia pasirinkti dvejopą plokštės veikimą – išorinė \textit{RS232} sąsaja skirta klaidų tikrinimui ir \textit{Bluetooth} modulio konfigūravimui. Antras veikimo būdas – mikrovaldiklio tiesioginė sąsaja su \textit{Bluetooth} moduliu. Ir paskutinė jungtis –\textit{EXT. CONFIG} ir yra jungtis skirta vienam iš \textit{RS-232} sąsajos veikimo būdui.
+
+\subsection{Skyriaus apibendrinimas}
+
+Šiame skyriuje buvo pateiktas ir aprašytas sistemos veikimas. Pateiktos blokinės schemos, trumpai aprašytas \textit{Matlab} terpėje sukurtas išeities kodas koncepcijai patikrinti. Realios sistemos specifikacijoje aprašyta sistemos schemotechnika, pademonstruotos ir paaiškintos darbo metu sukurttos plokštės.
+
+\section{Sistemos patikra}
+
+Šiame skyriuje bus aprata sistemos partikra bei jos eiga. Bus bandoma pademonstruoti jog baigiamojo bakalaurinio darbo metu sukurta sistema atitinka jai iškeltus techninius reikalavimus.
+
+\subsection{Galvos sekimo įrenginys}
+
+Šis poskiris skirtas apibendrinti galvos sekimo įrenginio veikimą bei jo charakteristikas.
+
+\subsubsection{Jutiklių duomenų sintezės tikslumo tyrimas}
+
+Didelis dėmesys buvo skirtas jutiklių duomenų sintezei. Algoritmo tiklumas buvo tikrinamas pasitelkiant specialiai paruoštą stalą, tai iliustruoja \ref{fig:headtracker_test1} pav.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=350px]{img/head_tracker_testu_stalas.png}
+  \caption{Galvos orientacijos sekimo įrenginio testas}
+  \label{fig:headtracker_test1}
+\end{figure}
+
+Kaip matoma iš \ref{fig:headtracker_test1} pav. lapas suskirstytas į lygias dalis po 45$^\circ$. Testo pradžioje galvos sekimo įrenginys buvo padėtas ties 0$^\circ$ žyme ir sukalibruotas. kaskart pasukant galvos sekimo įrenginį 45$^\circ$ kampu buvo užfiksuojami jutiklių duomenų sintezės rodmenys, tai iliustruoja \ref{fig:headtracker_test2} pav. Šis testas buvo atliktas po 40 kartų su kiekviena ašimi. Rezultate gauti duomenys parodė pakankamai gerą tikslumą ir toleruotiną paklaidą. Reikia paminėti jog toks testas nėra labai tikslus, tačiau jis leižia padaryti preliminiarias išvadas dėl sistemos tikslumo. Testų rezultatus atspindi \ref{fig:headtracker_test3} grafikas. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=350px]{img/head_tracker_testas.png}
+  \caption{Galvos orientacijos sekimo įrenginio testas}
+  \label{fig:headtracker_test2}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=500px]{img/headtracker_axis.png}
+  \caption{Galvos orientacijos sekimo įrenginio paklaidų grafikas}
+  \label{fig:headtracker_test3}
+\end{figure}
+
+Iš \ref{fig:headtracker_test3} grafiko matyti jog paklaida yra labiau atsitiktinio pobūdžio. Didesnę paklaidą galėjo lemti atlikto testo netikslumas
+
+\subsubsection{Energijos suvartojimo patikra}
+
+Patikra buvo atliekama naudojant skaitmeninį oscilografą. Matavimai buvo atliekami įrenginių įjungimo metu du kartus -- šalto paleidimo metu bei po 5 minučių įrenginių veikos. Toks pasirinkimas grindžiamas elektros energijos suvartojimo padidėjimu pakilus darbinei temperatūrai. \ref{fig:headtracker_coldboot} pav. matoma galvos orientacijos sekimo įrenginio elektros srovės suvartojimo priklausomybė nuo laiko šalto paleidimo metu. Kaip ir buvo minėta, matavimai atlikti naudojant skaitmeninį oscilografą. Srovės oscilogramų duomenys, pasirinkta raiška, transformuoti į skaitinių reikšmių lentelę. Šios vertės toliau buvo panaudotos Matlab programos terpėje braižant srovės suvartojimo laikines priklausomybes.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/head_tracker_coldboot.png}
+  \caption{Galvos orientacijos sekimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko šalto paleidimo metu.}
+  \label{fig:headtracker_coldboot}
+\end{figure}
+
+Kaip matome iš \ref{fig:headtracker_coldboot} paveikslo, įrenginio paleidimo metu srovė kyla nuo 50 mA iki ~170 mA. Tuo metu vyksta mikrovaldiklio, \textit{bluetooth} modulio kitos periferijos įgalinimas. Tolimesnis srovės suvartojimo svyravimas atsiranda dėl jutiklių duomenų nuskaitymo ir išsiuntimo per bluetooth ryšį naudojant RS232 prievadą. Maksimalus srovės suvartojimas siekia apie 230 mA. Tai yra gana didelė reikšmė, žinant, kad įrenginys yra mobilus ir jo pagrindinis maitinimo šaltinis yra 9 V baterija. Didžiąją dalį srovės suvartoja \textit{bluetooth} modulis ir įtampos stabilizatoriai. Pagal specifikacinį aprašą, \textit{bluetooth} modulio vidutinis srovės suvartojimas siekia net 114 mA. Tai yra net pusė maksimalios suvartojamos elektros srovės. Taigi norint sumažinti bendrą energijos suvartojimą, reikia kiek įmanoma mažinti duomenų atnaujinimo dažnį ir naudoti energijos taupymo režimus. Taip pat didelę dalį energijos suvartojimo sudaro įtampos stabilizatoriai. Ant 5V įtampos stabilizatoriaus atsiranda 4 V įtampos kritimas. Visas šis kritimas išspinduliuojamas šilumine energija į aplinką. Taip prarandamas didelis kiekis elektros energijos. Tai yra visiškai neefektyvu, bet taisytina. Vienas iš būdų – sumažinti elektros energijos maitinimo šaltinio įtampą. Dar vienas įtampos kritimas atsiranda ant 3.3 V įtampos stabilizatoriaus. Kadangi jis jungiamas jau po 5 V įtampos reguliatoriaus, tai atsiradęs kritimas tesiekia 1.7 V. Šioje vietoje sutaupyti energijos neišeina. Vienintelė išeitis – naudoti 3.3 V įtampa maitinamą mikrovaldiklį. \ref{fig:headtracker_5min} paveiksle matome galvos orientacijos sekimo įrenginio elektros srovės suvartojimo priklausomybę nuo laiko įjungimo metu, bet po 5 minučių nuo įrenginio veikos pradžios.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/head_tracker_5min.png}
+  \caption{Galvos orientacijos sekimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko po 5 minučių darbo.}
+  \label{fig:headtracker_5min}
+\end{figure}
+
+Kaip matoma iš \ref{fig:headtracker_5min} paveikslo, elektros srovės suvartojimas įrenginio įjungimo metu, bet po 5 minučių darbo padidėja. Taip yra todėl, kad galvos orientacijos sekimo įrenginio temperatūra po 5 minučių darbo šiek tiek pakyla. Srovės suvartojimo padidėjimas siekia maždaug 20 mA.
+
+\subsection{Garso apdorojimo įrenginio patikra}
+
+Šis poskiris skirtas apibendrinti garso apdorojimo įrenginio veikimą bei jo charakteristikas.
+
+\subsubsection{Energijos suvartojimo patikra}
+
+\ref{fig:sound_energy} paveiksle pavaizduota garso apdorojimo įrenginio srovės suvartojimo priklausomybė nuo laiko šalto paleidimo metu.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/sound_energy.png}
+  \caption{Garso apdorojimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko šalto paleidimo metu.}
+  \label{fig:sound_energy}
+\end{figure}
+
+Kaip matome iš \ref{fig:sound_energy} paveikslo maksimalus elektros srovės suvartojimas siekia iki 85 mA. Didžiąją dalį šios srovės suvartojimo sudaro įtampos stabilizatorius. Likusias dalis – mikrovaldiklis ir skaitmeninis-analoginis keitiklis. \ref{fig:sound_energy_5min} paveiksle pavaizduota srovės suvartojimo priklausomybė nuo laiko įjungimo metu po 5 minučių įrenginio darbo.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/sound_energy_5min.png}
+  \caption{Garso apdorojimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko po 5 minučių darbo.}
+  \label{fig:sound_energy_5min}
+\end{figure}
+
+Kaip matome iš \ref{fig:sound_energy_5min} paveikslo, garso apdorojimo įrenginio srovės suvartojimas po 5 minučių įrenginio darbo padidėja tik apie 5 mA. Taip yra todėl, kad įtaisas yra geriau suprojektuotas ir neatsiranda nereikalingų įtampos kritimų, o tuo pačiu ir energijos išsklaidymo šilumos pavidalu. Taip pat čia nėra duomenų perdavimo modulio \textit{BTM222}, kuris suvartoja gana nemažai elektros energijos.
+
+\newpage
+
+\subsection{Išvados}
+Išvada – garso apdorojimo įrenginys mažiau kaista, lyginant su galvos orientacijos sekimo įrenginiu bei mikrovaldiklis ir periferija maitinami 3.3 V elektros įtampa, todėl įtaisas yra ganėtinai ekonomiškesnis.
+Kol kas visos sistemos elektroninė dalis yra tik prototipo stadijoje, todėl visi atlikti matavimai yra preliminarūs ir ateityje keisis. Visos sistemos maksimalus elektros srovės suvartojimas tesiekia tik apie 340 mA, o tai atitinka užduoties rėžius (500 mA). Esamą srovės suvartojimą dar galima sumažinti minėtais būdais skyriuje, bet tai yra ateities planai ir šiuo metu tai nėra ypatingai aktualu, norint įrodyti ir pademonstruoti sistemos veikimą.
 
 \end{document}
