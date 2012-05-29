@@ -12,7 +12,7 @@
 \begin{document}
 
 \setcounter{page}{7}
-
+%\setcounter{totalnumber}{4}
 \onehalfspacing
 
 \tableofcontents
@@ -289,7 +289,7 @@ _{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
   \label{fig:quaternion_2}
 \end{figure}
 
-Paveikslas \ref{fig:quaternion_2} nusako rėmo (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
+Paveikslas \ref{fig:quaternion_2} nusako rėmo\footnote{Geometrijoje objekto (linijos, plokštumos ar kietojo kūno) orientacija erdvėje yra dažnai pateikiama kaip vieno rėmo orientacija kito rėmo atžvilgiu, tokiu atveju antrasis rėmas vadinamas atskaitos rėmu (angl. \textit{frame of referrence})} (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
 
 \begin{equation}
 _{B}^{A}R = \begin{bmatrix} 
@@ -300,14 +300,14 @@ _{B}^{A}R = \begin{bmatrix}
 \label{equ:rotation_matrix}
 \end{equation}
 
-Taipogi kvaternioną galima išreikšti pasukimo matricos pavidalu \ref{equ:rotation_matrix}.
+Taipogi kvaternioną galima išreikšti pasukimo matricos pavidalu \ref{equ:rotation_matrix}, tai suteikia lankstumo skaičiuojant pasisukimą.
 
-Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio kampais arba atliekant tam tikras operacijas su keletu kvaternionu. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu dėl anksčiau minėto ašių užsiblokavimo. 
-Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reikalingi du rėmai, šiame darbe rėmu A bus laikoma žemė, o rėmas B – sistema.
+Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio sistemos kampais arba atliekant operacijas susijusias su kampais. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu dėl anksčiau minėto ašių užsiblokavimo. 
+Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reikalingi du rėmai, pirmasis atskaitos rėmas (angl. \textit{reference frame}) antrasis - sistemos rėmas. Šiame darbe rėmu A (atskaitos rėmas) bus laikoma žemė, o rėmas B – galvos orientacijos įrenginys (sistemos rėmas).
 
-\begin{figure}
+\begin{figure}[htbp]
   \centering
-  \includegraphics[width=400px]{img/madgwick.png}
+  \includegraphics[width=390px]{img/madgwick.png}
   \caption{Madgwicko filtro schema}
   \label{fig:madgwick}
 \end{figure}
@@ -316,6 +316,48 @@ Bendra filtro schema pavaizduota \ref{fig:madgwick} pav. Kur $^{S}\hat{m}_{t}$ m
 
 \subsection{Garso apdorojimo mechanizmas}
 
-Pagrindiniai naudojami algoritmai buvo aprašyti 3 skyriuje, šiame poskyryje  yra aptarti ir paaiškinti naudojami metodai bei „Matlab“ paketo simuliacijų rezultatai.
+Garso apdorojimo įrenginio programinę įrangą sudaro dvi dalys – programinė įranga asmeniniame kompiuteryje bei programinė įranga esanti pačiame garso apdorojimo įrenginyje. Norint įgyvendinti aparatinio lygmens garso išvestį, visų pirma, reikia skaitmeninio garso duomenų bei aparatinės įrangos skirtos skaitmeninį garsą paversti į analoginį (SAK – skaitmeninis analoginis keitiklis). Skaitmeninio garso informacija bei duomenys siunčiami naudojant \textit{RS232} protokolą. Šių duomenų šaltinis – asmeninis kompiuteris su savo programine įranga. Skaitmeninio garso duomenų siuntimui į SAK naudojamas \textit{I2S} protokolas. \textit{I2S} – tai nuoseklusis duomenų perdavimo protokolas, kuris buvo sukurtas sujungti skaitmeninio garso įrenginius tarpusavyje. Jis plačiai taikomas garso atkūrimo ir įrašymo pramonėje (\textit{blue-ray}, \textit{CD}, \textit{DVD} grotuvuose ir kt.). Dažniausiai protokolas naudojamas sujungus tam tikro formato dekoderius ir skaitmeninius-analoginius keitiklius tarpusavyje. Protokolo fizinis lygmuo susideda iš trijų linijų – valdančioji bitų perdavimo dažnio linija, kanalo pasirinkimo linija bei duomenų perdavimo linija. Duomenys šiuo protokolu siunčiami sinchroniniu būdu. T.y. duomenys nuskaitomi tik esant aukštam valdančiosios bitų perdavimo linijos įtampos lygiui. Kanalo parinkimas (kairiojo ar dešiniojo) vyksta keičiant kanalo parinkimo linijos įtampos lygį. Šis keitimas privalo būti atliktas prieš perduodant paskutinį esamojo kanalo duomenų bitą. \ref{fig:garso_apdorojimas} pav pavaizduotas garso apdorojimo įrenginio programos algoritmo blokinė diagrama.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=400px]{img/garso_apdorojimas.png}
+  \caption{Garso apdorojimo įrenginio programos algoritmo blokinė diagrama}
+  \label{fig:garso_apdorojimas}
+\end{figure}
+
+Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda nuo \textit{RS232} bei \textit{I2S} protokolų įgalinimo. \textit{STM32F407-VGT}, kaip ir 8 bitų \textit{AVR} mikrovaldiklis, turi aparatinio lygmens \textit{RS232} protokolą. Pastarajame naudojamas 8N1 standartas – 8 duomenų perdavimo bitai, 1 start bitas, 1 stop bitas ir jokio lyginumo bito. Kaip ir buvo minėta anksčiau, skaitmeninio garso duomenų perdavimui naudojamas \textit{I2S} protokolas. Pasirinktas 32 bitų mikrovaldiklis turi aparatinio lygmens \textit{I2S} protokolą. Taigi, norint įgalinti protokolą, reikia įrašyti tam tiukras vertes į atitinkamus registrus programiškai. Toliau programos algoritme seka „handshake“ signalas. Tai tam tikras sutartinis „pasisveikinimo“ signalas siunčiamas \textit{RS232} protokolu asmeniniam kompiuteriui. Jeigu gaunamas teigiamas atsakymas, tuomet algoritmas tęsiamas. Jei negaunamas joks atsakymas, tikrinama ar praėjo 5 sekundės nuo „pasisveikinimo“ signalo išsiuntimo. Jei minėtasis laikas praėjo, tuomet registruojama programos algoritmo klaida ir programa yra užbaigiama. Jei 5 sekundės nepraėjo, tuomet toliau laukiamas atsakymas. Jei sulaukiamas „pasisvekinimo“ patvirtinimas, tuomet tęsiamas programos algoritmas. Tolimesnė programos eiga – gaunamas skaitmeninio garso duomenų aprašas. Pavyzdžiui – 16 bit duomenys vienam kanalui, 44,1 kHz diskretizavimo dažnis. Gavus šį aprašą, sukonfigūruojamos garso išvesties funkcijos pagal gautą formatą. Toliau programa pereina prie begalinio ciklo, kuriame vyksta visos likusios operacijos galutiniam garso išvedimui į ausines. Visų pirma, per \textit{RS232} sąsąją gaunamos \textit{WAV} failo amplitudžių vertės. Sekančiame žingsnyje vyksta visos apdorojimo bei modifikavimo, pagal esamą žmogaus galvos orientaciją, operacijos. Visos modifikuotos amplitudžių vertės paruošiamos galutiniam panaudojimui ir saugomos rezultatų masyve. Vertės iš rezultatų masyvo paeiliui siunčiamos į skaitmeninį-analoginį keitiklį \textit{I2S} protokolui.
+
+\subsection{Galvos sekimo įrenginys}
+
+Šiame poskyryje aptariamas galvos sekimo įrenginio programos algoritmas. \ref{fig:head_tracker} paveiksle pavaizduota algoritmo blokinė schema.
+
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=400px]{img/head_tracker.png}
+  \caption{Galvos sekimo įrenginio programos algoritmo blokinė diagrama}
+  \label{fig:head_tracker}
+\end{figure}
+
+Kaip matome iš \ref{fig:head_tracker} paveikslo, programos kodo pradžioje vyksta kintamųjų sukūrimas bei naudojamų įėjimų/išėjimų nustatymas. Kadangi naudojamų jutiklių duomenų perdavimo standartinis protokolas yra \textit{I2C}, todėl reikia įgyvendinti \textit{I2C} protokolo nustatymo mikrovaldiklyje operacijas. Pasirinktas mikrovaldiklis \textit{Atmel Atmega8} savyje turi aparatinio lygio \textit{I2C} valdymo bloką. Pagal specifikacinį \textit{AVR} mikrovaldiklio aprašą, norint įgalinti \textit{I2C} protokolą, reikia nustatyti duomenų perdavimo dažnį. Pasirinktas dažnis – 400 kHz. Tolimesnis programos kodas – tai jutiklių pradinių parametrų nustatymas. Norint panaudoti \textit{bluetooth} duomenų perdavimo ryšį, naudojamas \textit{UART} protokolas. \textit{Atmega8} mirkovaldiklis taip pat turi aparatinio lygio \textit{UART} protokolo bloką. Taigi tinkamam pastarojo veikimui, reikia jį įgalinti programiškai kaip ir \textit{I2C} protokolą. Pasirinkta duomenų perdavimo sparta – 57600 bodų per sekundę.
+Giroskopo \textit{L3G4200D} pradiniai nustatymai:
+
+\begin{itemize}
+\item Energijos taupymo režimo išjungimas. T.y. jutiklio įjungimas
+Magnetometro \textit{LSM303DLH} pradiniai nustatymai:
+\item Parenkamas duomenų atnaujinimo dažnis – 75 Hz
+\item Parenkamas ±2,5 Gauss įėjimo diapazonas
+\item Parenkamas nenutrūkstantis duomenų atnaujinimas
+\end{itemize}
+
+Akselerometro \textit{LSM303DLH} pradiniai nustatymai:
+\begin{itemize}
+\item Parenkamas 1000 Hz duomenų atnaujinimo dažnis
+\item Išjungiamas energijos taupymo veikimo režimas.
+\item Išjungiamas vidinis duomenų filtras 
+\item Nustatomas duomenų eiliškumas 8 bitų registruose
+\end{itemize}
+
+Atlikus jutiklių parametrų nustatymus, programos algoritmas pereina prie begalinio ciklo jutiklių duomenų nuskaitymui ir persiuntimui per \textit{bluetooth} ryšį. Duomenys nuskaitomi iš kiekvieno jutiklio šia eilės tvarka: akselerometro, magnetometro bei giroskopo duomenų nuskaitymas. Prieš kiekvieno jutiklio duomenų nuskaitymą yra laukiamas patvirtinimas, jog jutiklis yra pasirengęs perduoti duomenis. Todėl tikslaus duomenų atnaujinimo dažnio nustayti neįmanoma, nes kiekvieną ciklo iteraciją jutiklių pasirengimas perduoti duomenis gali skirtis. Per kiekvieną begalinio ciklo iteraciją nuskaitomos visos 3 jutiklių ašys – $X$,$Y$,$Z$. Kadangi pastarieji yra padidinto tikslumo (12 bitų), tai nuskaitant duomenis 8 bitų mikrovaldikliu \textit{I2C} protokolu, šiuos duomenis reikia apdoroti. Taip yra todėl, kad tiek jutiklių, tiek mikrovaldiklio registrai yra 8 bitų, bei \textit{I2C} protokolas perduoda tik 8 bitus duomenų vienos užklausos metu. Duomenų sujungimas šiuos atveju, tai tiesiog 8 aukščiausiųjų bitų perstūmimas į kairę lyginant su žemiausiais 8 bitais. Taip gaunamas 12 bitų tikslumas. Visi jutiklių duomenys po vienos ciklo iteracijos apjungiami į vieną string formato eilutę ir išsiunčiami bluetooth ryšiu, naudojant \textit{UART} protokolą. 
+
 
 \end{document}
