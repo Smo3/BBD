@@ -272,5 +272,39 @@ triašis akselerometras – pagreičiui kiekvienoje ašyje nustatyti.
 
 Visi šie trys davikliai turi savo stipriąsias ir silpnąsias puses, tačiau sensor fusion algoritmai padeda padidinti galutinių duomenų tikslumą. Dažniausiai naudojamas filtras – Kalmano, tačiau dėl didelio matematinio skaičiavimo kiekio (kuris neigiamai įtakoja bendrą mažos galios įterptinės sistemos greitaveiką) šiame darbe buvo pasirinktas paprastesnis Madgwick sensof fusion filtras. Palyginus su Kalmano filtru, Madgwicko filtras turi tik vieną žingsnį per kurį yra apskaičiuojami galutiniai duomenis, atsisakius nuspėjimo ir korekcijos žingsnių (kurie naudojami Kalmano filtre) sutaupomas laikas, ko pasekoje padidėja greitaveika. Tačiau atsisakius prieš tai minėtų dviejų žingsnių suprastėja filtro savybės, nes neatsižvelgiama į prieš tai buvusius duomenis.
 
+Madgwicko filtre orientacijai nusakyti naudojami kvaternionai, tokiu būdu išvengiamas ašių užsiblokavimo (angl. \textit{gimbal lock}) efektas. Kvaternionas savo paprasčiausioje formoje aprašomas formule \ref{quaterion_1}, kur $r_{x}$, $r_{y}$, $r_{z}$ yra vektoriaus $r$ kampų reikšmės, $\theta$ – pasukimo kampas, $q_{w}$, $q_{x}$, $q_{y}$, $q_{z}$ – kvaterniono $w$, $x$, $y$, $z$ dedamosios. 
+
+\begin{equation}
+_{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
+\end{bmatrix} = \begin{bmatrix}
+\emph{cos}\frac{\theta}{2} & -r_{x}\emph{sin}\frac{\theta}{2} & -r_{y}\emph{sin}\frac{\theta}{2} & -r_{z}\emph{sin}\frac{\theta}{2}
+\end{bmatrix}
+\label{quaterion_1}
+\end{equation}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=150px]{img/quaternion_frame.png}
+  \caption{Struktūrinė schema}
+  \label{fig:quaternion_2}
+\end{figure}
+
+Paveikslas \ref{fig:quaternion_2} nusako rėmo (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
+
+\begin{equation}
+_{B}^{A}R = \begin{bmatrix} 
+   2q_{w}^{2} - 1 + 2q_{x}^{2} & 2(q_{x}q_{y}+q_{w}q_{z}) & 2(q_{x}q_{z}+q_{w}q_{y})
+\\ 2(q_{x}q_{y}-q_{w}q_{z}) & 2q_{w}^{2} - 1 + 2q_{y}^{2} & 2(q_{y}q_{z}+q_{w}q_{x})
+\\ 2(q_{x}q_{z}+q_{w}q_{y}) & 2(q_{y}q_{z}-q_{w}q_{x}) & 2q_{w}^{2} - 1 + 2q_{y}^{2}
+\end{bmatrix}
+\label{equ:rotation_matrix}
+\end{equation}
+
+Taipogi kvaternioną galima išreikšti pasukimo matricos pavidalu \ref{equ:rotation_matrix}.
+
+Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio kampais arba atliekant tam tikras operacijas su keletu kvaternionu. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu. 
+Kaip matoma iš paveikslo 5.2 apskaičiuot kvaternionams reikalingi du rėmai, šiame darbe rėmu A bus laikoma žemė, o rėmas B – sistema.
+Bendra filtro schema pavaizduota paveiksle 5.3. Kur (_^S)(m_t ) ̂  magnetometro duomenys, (_^S)(a_t ) ̂  – akselerometro, (_^S)(ω_t ) ̂  – giroskopo parodymai. 5.3 paveikslėlis parodo pilnąjį Madgwicko filtrą MARG sistemai. Grupė 1 skirta pašalinti magnetometro magnetinius triukšmus (angl. Magnetic distortion), Grupė 2 – skirta pasinaudojant akselerometro ir magnetometro duomenimis sumažinti giroskopo dreifą. Tokiu būdu filtras įgauna magnetometro triukšmo ir giroskopo dreifo kompensavimo savybes. Filtro rezultatas – (_E^S)q ̂_(est,t)   pilna objekto orientacija žemės atžvilgiu išreikšta kvaternionu. 
+
 
 \end{document}
