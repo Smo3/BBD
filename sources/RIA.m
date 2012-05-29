@@ -18,7 +18,7 @@ function [h]=rir(fs, mic, n, r, rm, src)
 
 %      RM =  kambario dydis isreikstas paprastu vektoriu.  
 
-%      SRC = Klausytojo koordinates isreikstos x,y,z vektoriumi.
+%      SRC = Garso saltinio koordinates isreikstos x,y,z vektoriumi.
 
 %
 
