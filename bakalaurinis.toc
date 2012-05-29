@@ -9,7 +9,7 @@
 \contentsline {subsection}{\numberline {3.4.}Tarpausinis garso lygi\IeC {\k u} skirtumas}{14}
 \contentsline {subsection}{\numberline {3.5.}HRTF metodo panaudojimas}{15}
 \contentsline {subsection}{\numberline {3.6.}Duplekso teorija}{15}
-\contentsline {subsection}{\numberline {3.7.}Kambario impulsinis atsakas}{19}
+\contentsline {subsection}{\numberline {3.7.}Kambario impulsinis atsakas}{20}
 \contentsline {subsection}{\numberline {3.8.}Skyriaus apibendrinimas}{20}
 \contentsline {section}{\numberline {4.}Sistemos k\IeC {\=u}rimas}{21}
 \contentsline {subsection}{\numberline {4.1.}Sistemos strukt\IeC {\=u}rin\IeC {\.e} schema}{21}
@@ -17,3 +17,4 @@
 \contentsline {subsection}{\numberline {4.3.}Garso apdorojimo mechanizmas}{24}
 \contentsline {subsection}{\numberline {4.4.}Galvos sekimo \IeC {\k i}renginys}{26}
 \contentsline {subsection}{\numberline {4.5.}Binaurainio garso efekto mechanizmo algoritmas}{28}
+\contentsline {subsection}{\numberline {4.6.}KIA generavimas}{29}
