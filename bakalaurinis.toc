@@ -14,4 +14,5 @@
 \contentsline {section}{\numberline {4.}Sistemos k\IeC {\=u}rimas}{21}
 \contentsline {subsection}{\numberline {4.1.}Sistemos strukt\IeC {\=u}rin\IeC {\.e} schema}{21}
 \contentsline {subsection}{\numberline {4.2.}Jutikli\IeC {\k u} duomen\IeC {\k u} sintez\IeC {\.e}s filtras}{22}
-\contentsline {subsection}{\numberline {4.3.}Garso apdorojimo mechanizmas}{23}
+\contentsline {subsection}{\numberline {4.3.}Garso apdorojimo mechanizmas}{24}
+\contentsline {subsection}{\numberline {4.4.}Galvos sekimo \IeC {\k i}renginys}{26}
