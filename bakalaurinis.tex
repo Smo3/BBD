@@ -22,6 +22,7 @@
 \addcontentsline{toc}{section}{Žymenys ir santrumpos}
 
 \begin{itemize}
+\item MARG - Magnetinis laukas, kampinis pagreitis ir laisvojo kritimo pagreičio vektorius (angl. \textit{Magnetic, Angular Rate, and Gravity})
 \item HRTF - su galva susijusios perdavimo funkcijos (angl. \textit{Head Related Transfer Function}).
 \item ATF - anatominė perdavimo funkcija (angl. \textit{Anatomical Transfer Function}).
 \item FFTF - (angl. \textit{Field-Free Transfer Function}).
@@ -285,7 +286,7 @@ _{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=150px]{img/quaternion_frame.png}
-  \caption{Struktūrinė schema}
+  \caption{Dviejų rėmų orientacijos kitimas vienas kito atžvilgiu.}
   \label{fig:quaternion_2}
 \end{figure}
 
@@ -302,9 +303,20 @@ _{B}^{A}R = \begin{bmatrix}
 
 Taipogi kvaternioną galima išreikšti pasukimo matricos pavidalu \ref{equ:rotation_matrix}.
 
-Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio kampais arba atliekant tam tikras operacijas su keletu kvaternionu. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu. 
-Kaip matoma iš paveikslo 5.2 apskaičiuot kvaternionams reikalingi du rėmai, šiame darbe rėmu A bus laikoma žemė, o rėmas B – sistema.
-Bendra filtro schema pavaizduota paveiksle 5.3. Kur (_^S)(m_t ) ̂  magnetometro duomenys, (_^S)(a_t ) ̂  – akselerometro, (_^S)(ω_t ) ̂  – giroskopo parodymai. 5.3 paveikslėlis parodo pilnąjį Madgwicko filtrą MARG sistemai. Grupė 1 skirta pašalinti magnetometro magnetinius triukšmus (angl. Magnetic distortion), Grupė 2 – skirta pasinaudojant akselerometro ir magnetometro duomenimis sumažinti giroskopo dreifą. Tokiu būdu filtras įgauna magnetometro triukšmo ir giroskopo dreifo kompensavimo savybes. Filtro rezultatas – (_E^S)q ̂_(est,t)   pilna objekto orientacija žemės atžvilgiu išreikšta kvaternionu. 
+Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio kampais arba atliekant tam tikras operacijas su keletu kvaternionu. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu dėl anksčiau minėto ašių užsiblokavimo. 
+Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reikalingi du rėmai, šiame darbe rėmu A bus laikoma žemė, o rėmas B – sistema.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=400px]{img/madgwick.png}
+  \caption{Madgwicko filtro schema}
+  \label{fig:madgwick}
+\end{figure}
+
+Bendra filtro schema pavaizduota \ref{fig:madgwick} pav. Kur $^{S}\hat{m}_{t}$ magnetometro duomenys, $^{S}\hat{a}_{t}$ – akselerometro, $^{S}\hat{\omega}_{t}$  – giroskopo parodymai. \ref{fig:madgwick} pav. parodo pilnąjį Madgwicko filtrą MARG (angl. \textit{Magnetic, Angular Rate, and Gravity}) sistemai. Grupė 1 skirta pašalinti magnetometro magnetinius triukšmus (angl. \textit{Magnetic distortion}), Grupė 2 – skirta pasinaudojant akselerometro ir magnetometro duomenimis sumažinti giroskopo dreifą. Tokiu būdu filtras įgauna magnetometro triukšmo ir giroskopo dreifo kompensavimo savybes. Filtro rezultatas – $_{E}^{S}\hat{q}_{est,t}$ pilna objekto orientacija žemės atžvilgiu išreikšta kvaternionu. 
+
+\subsection{Garso apdorojimo mechanizmas}
+
+Pagrindiniai naudojami algoritmai buvo aprašyti 3 skyriuje, šiame poskyryje  yra aptarti ir paaiškinti naudojami metodai bei „Matlab“ paketo simuliacijų rezultatai.
 
 \end{document}
