@@ -269,26 +269,27 @@ Darbo metu sukurta garso apdorojimo sistema išnaudoja šiame skyriuje aprašytu
 \ref{fig:full_schematic} pav. pavaizduota baigiamojo bakalauro darbo struktūrinė schema. Sistemą sudaro trys dalys:
 
 \begin{itemize}
-\item Galvos sekimo įrenginys
-\item Garso apdorojimo įrenginys
-\item Asmeninis kompiuteris su specializuota programine įranga.
+\item galvos sekimo įrenginys,
+\item garso apdorojimo įrenginys,
+\item asmeninis kompiuteris su specializuota programine įranga.
 \end{itemize}
 
-Galvos sekimo įrenginys skirtas sekti vartotojo galvos orientacijai erdvėje, tam kad, sistemai suteikti generuojamo garso priklausomybę nuo galvos orientacijos. Ši priklausomybė yra būtina norint kuo tiksliau sugeneruoti binauralinį garsą. Norint įgyvendinti nepriekaištingą galvos sekimo įrenginio veikimą, buvo suprojektuota ir pagaminta spausdintinė plokštė, atitinkanti fizinių išmatavimų ir elektros energijos sąnaudų reikalavimus. Taip pat parašytos dvi programinės įrangos – pačiam galvos orientacijos sekimo įrenginiui bei asmeniniam kompiuteriui. Įrenginio programinė įranga skirta nuskaityti parodymus iš skirtingų jutiklių – akselerometro, magnetometro ir giroskopo, o taipogi juos siųsti į asmeninį kompiuterį tolimesniam apdorojimui. Savo ruoštu, asmeninis kompiuteris su savo programine įranga šiuos duomenis toliau apdoroja. Šiuo atveju atliekama visų daviklių duomenų filtracija ir sujungimas. Tokiu būdu išgaunama galvos orientacija trimatėje erdvėje.
+Galvos sekimo įrenginys skirtas sekti vartotojo galvos orientacijai erdvėje, tam, kad sistemai suteikti generuojamo garso priklausomybę nuo galvos orientacijos. Ši priklausomybė yra būtina norint kuo tiksliau sugeneruoti binauralinį garsą. Norint įgyvendinti nepriekaištingą galvos sekimo įrenginio veikimą, buvo suprojektuota ir pagaminta spausdintinė plokštė, atitinkanti fizinių išmatavimų ir elektros energijos sąnaudų reikalavimus. Taip pat parašytos dvi programinės įrangos – pačiam galvos orientacijos sekimo įrenginiui bei asmeniniam kompiuteriui. Įrenginio programinė įranga skirta nuskaityti parodymus iš skirtingų jutiklių – akselerometro, magnetometro ir giroskopo, o taipogi juos siųsti į asmeninį kompiuterį tolimesniam apdorojimui. Savo ruožtu, asmeninis kompiuteris su savo programine įranga šiuos duomenis toliau apdoroja. Šiuo atveju atliekama visų daviklių duomenų filtracija ir sujungimas. Tokiu būdu išgaunama galvos orientacija trimatėje erdvėje.
 
-Garso apdorojimo įrenginys – tai baigiamojo bakalaurinio darbo metu sukurta įterptinė sistema skirta binauralinio garso generavimui, joje apdorojami virtualios erdvės akustiniai ypatumai, o taip pat iš asmeninio kompiuterio gautas monofoninis garsas priklausomai nuo galvos sekimo įrenginio surinktų duomenų atitinkamai pakeičiamas. Šių veiksmų visuma sukuria binauralinį efektą. Tad kaip yra matoma iš paveikslo 4.1 pagrindinė sistemos dalis yra garso apdorojimo įrenginys, tačiau neturint tiek virtualios, tiek realios aplinkos duomenų tikrą binauralinį efektą sukurti neįmanoma. Garso apdorojimo įrenginys susideda iš kelių dalių – galingas 32 bitų ARM serijos mikrovaldiklis su integruotu skaitmeninių signalų apdorojimo moduliu, maitinimo stabilizatoriaus, sąsajų bei skaitmeninio – analoginio keitiklio. Pastarasis skirtas skaitmeninį apdorotą signalą paversti į analoginį garso toną. 
+Garso apdorojimo įrenginys – tai baigiamojo bakalauro darbo metu sukurta įterptinė sistema, skirta binauralinio garso generavimui, joje apdorojami virtualios erdvės akustiniai ypatumai, o taip pat iš asmeninio kompiuterio gautas monofoninis garsas priklausomai nuo galvos sekimo įrenginio surinktų duomenų atitinkamai pakeičiamas. Šių veiksmų visuma sukuria binauralinį efektą. Tad kaip yra matoma iš 4.1 pav. pagrindinė sistemos dalis yra garso apdorojimo įrenginys, tačiau neturint tiek virtualios, tiek realios aplinkos duomenų tikrą binauralinį efektą sukurti neįmanoma. Garso apdorojimo įrenginys susideda iš kelių dalių – galingas 32 bitų ARM serijos mikrovaldiklis su integruotu skaitmeninių signalų apdorojimo moduliu, maitinimo stabilizatoriaus, sąsajų bei skaitmeninio – analoginio keitiklio. Pastarasis skirtas skaitmeninį apdorotą signalą paversti į analoginį garso toną. 
 
 \subsection{Jutiklių duomenų sintezės filtras}
 
-Sensor fusion algoritmas yra naudojamas galvos orientacijos nuskaitymo įrenginyje. Galvos orientaciją erdvėje nuskaito trys davikliai: 
+\textit{Sensor fusion} algoritmas yra naudojamas galvos orientacijos nuskaitymo įrenginyje. Galvos orientaciją erdvėje nuskaito trys davikliai: 
 
-triašis akselerometras – pagreičiui kiekvienoje ašyje nustatyti.
+
 \begin{itemize}
+\item triašis akselerometras – pagreičiui kiekvienoje ašyje nustatyti.
 \item triašis magnetometras – nustatyti kampą žemės magnetinių linijų ir magnetometro atžvilgiu.
-\item Triašis giroskopas – kampiniam pagreičiui trijose ašyse nustatyti.
+\item triašis giroskopas – kampiniam pagreičiui trijose ašyse nustatyti.
 \end{itemize}
 
-Visi šie trys davikliai turi savo stipriąsias ir silpnąsias puses, tačiau sensor fusion algoritmai padeda padidinti galutinių duomenų tikslumą. Dažniausiai naudojamas filtras – Kalmano, tačiau dėl didelio matematinio skaičiavimo kiekio (kuris neigiamai įtakoja bendrą mažos galios įterptinės sistemos greitaveiką) šiame darbe buvo pasirinktas paprastesnis Madgwick sensor fusion filtras. Palyginus su Kalmano filtru, Madgwicko filtras turi tik vieną žingsnį per kurį yra apskaičiuojami galutiniai duomenis, atsisakius nuspėjimo ir korekcijos žingsnių (kurie naudojami Kalmano filtre) sutaupomas laikas, ko pasėkoje padidėja greitaveika. Tačiau atsisakius prieš tai minėtų dviejų žingsnių suprastėja filtro savybės, nes neatsižvelgiama į prieš tai buvusius duomenis.
+Visi šie trys davikliai turi savo stipriąsias ir silpnąsias puses, tačiau \textit{sensor fusion} algoritmai padeda padidinti galutinių duomenų tikslumą. Dažniausiai naudojamas filtras – Kalmano, tačiau dėl didelio matematinio skaičiavimo kiekio (kuris neigiamai įtakoja bendrą mažos galios įterptinės sistemos greitaveiką) šiame darbe buvo pasirinktas paprastesnis \textit{Madgwick sensor fusion} filtras. Palyginus su Kalmano filtru, Madgwicko filtras turi tik vieną žingsnį, per kurį yra apskaičiuojami galutiniai duomenis, atsisakius nuspėjimo ir korekcijos žingsnių (kurie naudojami Kalmano filtre) sutaupomas laikas, todėl padidėja greitaveika. Tačiau atsisakius prieš tai minėtų dviejų žingsnių suprastėja filtro savybės, nes neatsižvelgiama į prieš tai buvusius duomenis.
 
 Madgwicko filtre orientacijai nusakyti naudojami kvaternionai\footnote{Kvaternionas (lot. \textit{quattor} – keturi) – skaičių aibė, nekomutatyvus kompleksinių skaičių aibės praplėtimas. }, tokiu būdu išvengiamas ašių užsiblokavimo (angl. \textit{gimbal lock}) efektas. Kvaternionas savo paprasčiausioje formoje aprašomas formule \ref{quaterion_1}, kur $r_{x}$, $r_{y}$, $r_{z}$ yra vektoriaus $r$ kampų reikšmės, $\theta$ – pasukimo kampas, $q_{w}$, $q_{x}$, $q_{y}$, $q_{z}$ – kvaterniono $w$, $x$, $y$, $z$ dedamosios. 
 
