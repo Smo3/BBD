@@ -497,36 +497,36 @@ Pateiktas \textit{Matlab} paketo išeities kodo fragmentas \ref{code:RIA_gen} sk
 \newpage
 \subsection{Realios sistemos specifikacija}
 
-Šiame poskyryje bus aptartas ir aprašytas realus įrenginys pagrįstas ankščiau aprašytomis teorijomis. Reali sistema susideda iš programines ir elektronikos dalių.
+Šiame poskyryje bus aptartas ir aprašytas realus įrenginys, pagrįstas anksčiau aprašytomis teorijomis. Reali sistema susideda iš programinės ir elektroninės dalių.
 
-\ref{fig:headtracker_schematic} paveiksle matoma galvos orientacijos sekimo įrenginio mikrovaldiklinė dalis. Įrenginiui valdyti panaudotas 8 bitų mikrovaldiklis \textit{ATMEL ATMEGA8 TQFP32} korpuse. Šioje įrenginio schemos dalyje matomas pats mikrovaldiklis, programavimo sąsaja bei išvesties jungtys. Taktinis mikrovaldiklio darbo dažnis – 16 MHz.
+\ref{fig:headtracker_schematic} pav. matoma galvos orientacijos sekimo įrenginio mikrovaldiklinė dalis. Įrenginiui valdyti panaudotas 8 bitų mikrovaldiklis Atmel Atmega8 TQFP32 korpuse. Šioje įrenginio schemos dalyje matomas pats mikrovaldiklis, programavimo sąsaja bei išvesties jungtys. Taktinis mikrovaldiklio darbo dažnis – 16 MHz.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=390px]{img/headtracker_schematic.png}
-  \caption{Galvos orientacijos sekimo įrenginio elektrinės – principinės schemos mikrovaldiklio dalis}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės principinės schemos mikrovaldiklio dalis}
   \label{fig:headtracker_schematic}
 \end{figure}
 
-Tai yra maksimalus įmanomas (teorinis) \textit{ATMEGA8} taktinis darbo dažnis. Šį dažnį generuoja kvarcinis rezonatorius, o pastarojo darbo stabilumui palaikyti naudojami mažos talpos kondensatoriai jungiami nuosekliai su kvarciniu rezonatoriumi ir įžeminimu. Išvesties jungtys \textit{ATM\_RX} ir \textit{ATM\_TX} naudojamos kaip \textit{RS232} sąsaja su \textit{Bluetooth} moduliu. \textit{SDA} ir \textit{SCL} – \textit{I2C}  sąsaja su jutiklių spausdintine plokšte.
+Tai yra maksimalus įmanomas (teorinis) Atmega8 taktinis darbo dažnis. Šį dažnį generuoja kvarcinis rezonatorius, o pastarojo darbo stabilumui palaikyti naudojami mažos talpos kondensatoriai jungiami nuosekliai su kvarciniu rezonatoriumi ir įžeminimu. Išvesties jungtys \textit{ATM\_RX} ir \textit{ATM\_TX} naudojamos kaip RS232 sąsaja su \textit{bluetooth} moduliu. SDA ir SCL – I2C  sąsaja su jutiklių spausdintine plokšte.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=200px]{img/head_tracker_sender.png}
-  \caption{Galvos orientacijos sekimo įrenginio elektrinės – principinės schemos siųstuvinė-imtuvinė dalis}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės principinės schemos siųstuvinė-imtuvinė dalis}
   \label{fig:headtracker_sender}
 \end{figure}
 
-\ref{fig:headtracker_sender} paveiklėlyje matome galvos orientacijos sekimo įrenginio siųstuvinę-imtuvinę dalį, kurią sudaro \textit{Bluetooth} modulis \textit{BTM-222}, Šmito trigeris bei įtampų daliklis R5-R6. Pats \textit{BTM-222} modulis veikia per \textit{RS232} sąsają, todėl juo naudotis gana paprasta. Šmito trigeris čia naudojamas dėl tos pačios priežasties, kaip ir įtampų daliklis – suderinti skirtingus loginių įtampų lygius. Kadangi mikrovaldiklis veikia naudojant 5 V maitinimą, o Bluetooth modulis – 3,3 V, taigi norint šiems dviems įrenginiams keistis duomenimis, reikalinga suderinti skirtingus įtampų lygius. Kai duomenys siunčiami iš mikrovaldiklio (su 5 V loginiais lygiais), tai 3,3 V loginį lygį užtikrina įtampų daliklis R5-R6. Duomenims keliaujant priešinga linkme, įtampų lygių suderinamumą užtikrina Šmito trigeris.
+\ref{fig:headtracker_sender} pav. matome galvos orientacijos sekimo įrenginio siųstuvinę-imtuvinę dalį, kurią sudaro \textit{bluetooth} modulis BTM-222, Šmito trigeris bei įtampų daliklis R5-R6. Pats BTM-222 modulis veikia per RS232 sąsają, todėl juo naudotis gana paprasta. Šmito trigeris čia naudojamas dėl tos pačios priežasties, kaip ir įtampų daliklis – suderinti skirtingus loginių įtampų lygius. Kadangi mikrovaldiklis veikia naudojant 5 V maitinimą, o \textit{bluetooth} modulis – 3,3 V, taigi norint šiems dviem įrenginiams keistis duomenimis, reikalinga suderinti skirtingus įtampų lygius. Kai duomenys siunčiami iš mikrovaldiklio (su 5 V loginiais lygiais), tai 3,3 V loginį lygį užtikrina įtampų daliklis R5-R6. Duomenims keliaujant priešinga linkme, įtampų lygių suderinamumą užtikrina Šmito trigeris.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=390px]{img/head_tracker_stabilizer.png}
-  \caption{Galvos orientacijos sekimo įrenginio elektrinės – principinės schemos maitinimo įtampos stabilizavimo dalis}
+  \caption{Galvos orientacijos sekimo įrenginio elektrinės principinės schemos maitinimo įtampos stabilizavimo dalis}
   \label{fig:headtracker_stabilizer}
 \end{figure}
 
-\ref{fig:headtracker_stabilizer} pav. matoma galvos orientacijos sekimo įrenginio maitinimo šaltinio principinė – elektrinė schema. Ji susideda iš dviejų įtampos stabilizatorių:  \textit{LM1117MPX-5.0} bei \textit{LM1117IMP-3.3}. Abi stabilizatoriai stabilizuoja įėjimo įtampą atitinkamai – 5 V ir 3.3 V. Nepriekaištingam jų veikimui reikalingi filtro kondensatoriai jungiami lygiagrečiai su neigiamu šaltinio poliumi tiek prieš reguliatorius tiek už jų. Įtampos stabilumas ypatingai svarbus žinant, jog mikrovaldiklis dirba gana aukštu dažniu – 16 MHz. Kaip ir buvo minėta anksčiau, 5 V maitinimo įtampa naudojama mikrovaldiklio daliai, o 3.3 V – \textit{Bluetooth} moduliui.
+\ref{fig:headtracker_stabilizer} pav. matoma galvos orientacijos sekimo įrenginio maitinimo šaltinio elektrinė principinė schema. Ji susideda iš dviejų įtampos stabilizatorių:  LM1117MPX-5.0 bei LM1117IMP-3.3. Abu stabilizatoriai stabilizuoja įėjimo įtampą atitinkamai – 5 V ir 3.3 V. Nepriekaištingam jų veikimui reikalingi filtro kondensatoriai jungiami lygiagrečiai su neigiamu šaltinio poliumi tiek prieš, reguliatorius tiek už jų. Įtampos stabilumas ypatingai svarbus žinant, jog mikrovaldiklis dirba gana aukštu dažniu – 16 MHz. Kaip ir buvo minėta anksčiau, 5 V maitinimo įtampa naudojama mikrovaldiklio daliai, o 3.3 V – \textit{bluetooth} moduliui.
 
 \begin{figure}[htbp]
   \centering
@@ -535,23 +535,23 @@ Tai yra maksimalus įmanomas (teorinis) \textit{ATMEGA8} taktinis darbo dažnis.
   \label{fig:headtracker_links}
 \end{figure}
 
-\ref{fig:headtracker_links} pav. pavaizduotos schemos dalyje matomos fizinės išvesties-įvesties jungtys bei Šmito trigerio mikroschemos nepanaudotų kojelių pajungimas į žemę. Pastarasis veiksmas atliekamas, nes taip pataria specifikacinis mikroschemos aprašas. \textit{POLOLU EXT} jungtis atsako už mikrovaldiklio ir jutiklinės plokščių sujungimą \textit{I2C} sąsaja, bei užtikrina 5 V maitinomo įtampą jutiklinei spausdinintei plokštei. \textit{RX} ir \textit{TX} jungtys – tai trumpikliai, kurie leidžia pasirinkti dvejopą plokštės veikimą – išorinė \textit{RS232} sąsaja skirta klaidų tikrinimui ir \textit{Bluetooth} modulio konfigūravimui. Antras veikimo būdas – mikrovaldiklio tiesioginė sąsaja su \textit{Bluetooth} moduliu. Ir paskutinė jungtis –\textit{EXT. CONFIG} ir yra jungtis skirta vienam iš \textit{RS-232} sąsajos veikimo būdui.
+\ref{fig:headtracker_links} pav. pavaizduotos schemos dalyje matomos fizinės išvesties-įvesties jungtys bei Šmito trigerio mikroschemos nepanaudotų kojelių pajungimas į žemę. Pastarasis veiksmas atliekamas, nes taip pataria specifikacinis mikroschemos aprašas. POLOLU EXT jungtis atsako už mikrovaldiklio ir jutiklinės plokščių sujungimą I2C sąsaja, bei užtikrina 5 V maitinimo įtampą jutiklinei spausdintinei plokštei. RX ir TX jungtys – tai trumpikliai, kurie leidžia pasirinkti dvejopą plokštės veikimą – išorinė RS232 sąsaja, skirta klaidų tikrinimui ir \textit{bluetooth} modulio konfigūravimui. Antras veikimo būdas – mikrovaldiklio tiesioginė sąsaja su \textit{bluetooth} moduliu. Ir paskutinė jungtis – EXT. CONFIG yra skirta vienam iš RS-232 sąsajos veikimo būdų.
 
 \subsection{Skyriaus apibendrinimas}
 
-Šiame skyriuje buvo pateiktas ir aprašytas sistemos veikimas. Pateiktos blokinės schemos, trumpai aprašytas \textit{Matlab} terpėje sukurtas išeities kodas koncepcijai patikrinti. Realios sistemos specifikacijoje aprašyta sistemos schemotechnika, pademonstruotos ir paaiškintos darbo metu sukurttos plokštės.
+Šiame skyriuje buvo pateiktas ir aprašytas sistemos veikimas. Pateiktos blokinės schemos, trumpai aprašytas \textit{Matlab} terpėje sukurtas išeities kodas koncepcijai patikrinti. Realios sistemos specifikacijoje aprašyta sistemos schemotechnika, pademonstruotos ir paaiškintos darbo metu sukurtos plokštės.
 
 \section{Sistemos patikra}
 
-Šiame skyriuje bus aprata sistemos partikra bei jos eiga. Bus bandoma pademonstruoti jog baigiamojo bakalaurinio darbo metu sukurta sistema atitinka jai iškeltus techninius reikalavimus.
+Šiame skyriuje bus aptarta sistemos partikra bei jos eiga. Bus bandoma pademonstruoti, jog baigiamojo bakalauro darbo metu sukurta sistema atitinka jai iškeltus techninius reikalavimus.
 
 \subsection{Galvos sekimo įrenginys}
 
-Šis poskiris skirtas apibendrinti galvos sekimo įrenginio veikimą bei jo charakteristikas.
+Šis poskyris skirtas apibendrinti galvos sekimo įrenginio veikimą bei jo charakteristikas.
 
 \subsubsection{Jutiklių duomenų sintezės tikslumo tyrimas}
 
-Didelis dėmesys buvo skirtas jutiklių duomenų sintezei. Algoritmo tiklumas buvo tikrinamas pasitelkiant specialiai paruoštą stalą, tai iliustruoja \ref{fig:headtracker_test1} pav.
+Didelis dėmesys buvo skirtas jutiklių duomenų sintezei. Algoritmo tikslumas buvo tikrinamas pasitelkiant specialiai paruoštą stalą, tai iliustruoja \ref{fig:headtracker_test1} pav.
 
 \begin{figure}[htbp]
   \centering
@@ -560,7 +560,7 @@ Didelis dėmesys buvo skirtas jutiklių duomenų sintezei. Algoritmo tiklumas bu
   \label{fig:headtracker_test1}
 \end{figure}
 
-Kaip matoma iš \ref{fig:headtracker_test1} pav. lapas suskirstytas į lygias dalis po 45$^\circ$. Testo pradžioje galvos sekimo įrenginys buvo padėtas ties 0$^\circ$ žyme ir sukalibruotas. kaskart pasukant galvos sekimo įrenginį 45$^\circ$ kampu buvo užfiksuojami jutiklių duomenų sintezės rodmenys, tai iliustruoja \ref{fig:headtracker_test2} pav. Šis testas buvo atliktas po 40 kartų su kiekviena ašimi. Rezultate gauti duomenys parodė pakankamai gerą tikslumą ir toleruotiną paklaidą. Reikia paminėti jog toks testas nėra labai tikslus, tačiau jis leižia padaryti preliminiarias išvadas dėl sistemos tikslumo. Testų rezultatus atspindi \ref{fig:headtracker_test3} grafikas. 
+Kaip matoma iš \ref{fig:headtracker_test1} pav. lapas suskirstytas į lygias dalis po 45$^\circ$. Testo pradžioje galvos sekimo įrenginys buvo padėtas ties 0$^\circ$ žyme ir sukalibruotas. Kaskart pasukant galvos sekimo įrenginį 45$^\circ$ kampu buvo užfiksuojami jutiklių duomenų sintezės rodmenys, tai iliustruoja \ref{fig:headtracker_test2} pav. Šis testas buvo atliktas po 40 kartų su kiekviena ašimi. Rezultate gauti duomenys parodė pakankamai gerą tikslumą ir toleruotiną paklaidą. Reikia paminėti, jog toks testas nėra labai tikslus, tačiau jis leižia padaryti preliminiarias išvadas dėl sistemos tikslumo. Testų rezultatus atspindi \ref{fig:headtracker_test3} pav. 
 
 \begin{figure}[htbp]
   \centering
@@ -576,55 +576,55 @@ Kaip matoma iš \ref{fig:headtracker_test1} pav. lapas suskirstytas į lygias da
   \label{fig:headtracker_test3}
 \end{figure}
 
-Iš \ref{fig:headtracker_test3} grafiko matyti jog paklaida yra labiau atsitiktinio pobūdžio. Didesnę paklaidą galėjo lemti atlikto testo netikslumas
+Iš \ref{fig:headtracker_test3} pav. matyti, jog paklaida yra labiau atsitiktinio pobūdžio. Didesnę paklaidą galėjo lemti atlikto testo netikslumas.
 
 \subsubsection{Energijos suvartojimo patikra}
 
-Patikra buvo atliekama naudojant skaitmeninį oscilografą. Matavimai buvo atliekami įrenginių įjungimo metu du kartus -- šalto paleidimo metu bei po 5 minučių įrenginių veikos. Toks pasirinkimas grindžiamas elektros energijos suvartojimo padidėjimu pakilus darbinei temperatūrai. \ref{fig:headtracker_coldboot} pav. matoma galvos orientacijos sekimo įrenginio elektros srovės suvartojimo priklausomybė nuo laiko šalto paleidimo metu. Kaip ir buvo minėta, matavimai atlikti naudojant skaitmeninį oscilografą. Srovės oscilogramų duomenys, pasirinkta raiška, transformuoti į skaitinių reikšmių lentelę. Šios vertės toliau buvo panaudotos Matlab programos terpėje braižant srovės suvartojimo laikines priklausomybes.
+Patikra buvo atliekama naudojant skaitmeninį oscilografą. Matavimai buvo atliekami įrenginių įjungimo metu du kartus -- šalto paleidimo metu bei po 5 minučių įrenginių veiklos. Toks pasirinkimas grindžiamas elektros energijos suvartojimo padidėjimu pakilus darbinei temperatūrai. \ref{fig:headtracker_coldboot} pav. matoma galvos orientacijos sekimo įrenginio elektros srovės suvartojimo priklausomybė nuo laiko šalto paleidimo metu. Kaip ir buvo minėta, matavimai atlikti naudojant skaitmeninį oscilografą. Srovės oscilogramų duomenys, pasirinkta raiška, transformuoti į skaitinių reikšmių lentelę. Šios vertės toliau buvo panaudotos \textit{Matlab} programos terpėje braižant srovės suvartojimo laikines priklausomybes.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=400px]{img/head_tracker_coldboot.png}
-  \caption{Galvos orientacijos sekimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko šalto paleidimo metu.}
+  \caption{Galvos orientacijos sekimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko šalto paleidimo metu}
   \label{fig:headtracker_coldboot}
 \end{figure}
 
-Kaip matome iš \ref{fig:headtracker_coldboot} paveikslo, įrenginio paleidimo metu srovė kyla nuo 50 mA iki ~170 mA. Tuo metu vyksta mikrovaldiklio, \textit{bluetooth} modulio kitos periferijos įgalinimas. Tolimesnis srovės suvartojimo svyravimas atsiranda dėl jutiklių duomenų nuskaitymo ir išsiuntimo per bluetooth ryšį naudojant RS232 prievadą. Maksimalus srovės suvartojimas siekia apie 230 mA. Tai yra gana didelė reikšmė, žinant, kad įrenginys yra mobilus ir jo pagrindinis maitinimo šaltinis yra 9 V baterija. Didžiąją dalį srovės suvartoja \textit{bluetooth} modulis ir įtampos stabilizatoriai. Pagal specifikacinį aprašą, \textit{bluetooth} modulio vidutinis srovės suvartojimas siekia net 114 mA. Tai yra net pusė maksimalios suvartojamos elektros srovės. Taigi norint sumažinti bendrą energijos suvartojimą, reikia kiek įmanoma mažinti duomenų atnaujinimo dažnį ir naudoti energijos taupymo režimus. Taip pat didelę dalį energijos suvartojimo sudaro įtampos stabilizatoriai. Ant 5V įtampos stabilizatoriaus atsiranda 4 V įtampos kritimas. Visas šis kritimas išspinduliuojamas šilumine energija į aplinką. Taip prarandamas didelis kiekis elektros energijos. Tai yra visiškai neefektyvu, bet taisytina. Vienas iš būdų – sumažinti elektros energijos maitinimo šaltinio įtampą. Dar vienas įtampos kritimas atsiranda ant 3.3 V įtampos stabilizatoriaus. Kadangi jis jungiamas jau po 5 V įtampos reguliatoriaus, tai atsiradęs kritimas tesiekia 1.7 V. Šioje vietoje sutaupyti energijos neišeina. Vienintelė išeitis – naudoti 3.3 V įtampa maitinamą mikrovaldiklį. \ref{fig:headtracker_5min} paveiksle matome galvos orientacijos sekimo įrenginio elektros srovės suvartojimo priklausomybę nuo laiko įjungimo metu, bet po 5 minučių nuo įrenginio veikos pradžios.
+Kaip matome iš \ref{fig:headtracker_coldboot} pav., įrenginio paleidimo metu srovė kyla nuo 50 mA iki ~170 mA. Tuo metu vyksta mikrovaldiklio, \textit{bluetooth} modulio kitos periferijos įgalinimas. Tolimesnis srovės suvartojimo svyravimas atsiranda dėl jutiklių duomenų nuskaitymo ir išsiuntimo per \textit{bluetooth} ryšį naudojant RS232 prievadą. Maksimalus srovės suvartojimas siekia apie 230 mA. Tai yra gana didelė reikšmė, žinant, kad įrenginys yra mobilus ir jo pagrindinis maitinimo šaltinis yra 9 V baterija. Didžiąją dalį srovės suvartoja \textit{bluetooth} modulis ir įtampos stabilizatoriai. Pagal specifikacinį aprašą, \textit{bluetooth} modulio vidutinis srovės suvartojimas siekia net 114 mA. Tai yra net pusė maksimalios suvartojamos elektros srovės. Taigi norint sumažinti bendrą energijos suvartojimą, reikia kiek įmanoma mažinti duomenų atnaujinimo dažnį ir naudoti energijos taupymo režimus. Taip pat didelę dalį energijos suvartojimo sudaro įtampos stabilizatoriai. Ant 5 V įtampos stabilizatoriaus atsiranda 4 V įtampos kritimas. Visas šis kritimas išspinduliuojamas šilumine energija į aplinką. Taip prarandamas didelis kiekis elektros energijos. Tai yra visiškai neefektyvu, bet taisytina. Vienas iš būdų – sumažinti elektros energijos maitinimo šaltinio įtampą. Dar vienas įtampos kritimas atsiranda ant 3.3 V įtampos stabilizatoriaus. Kadangi jis jungiamas jau po 5 V įtampos reguliatoriaus, tai atsiradęs kritimas tesiekia 1.7 V. Šioje vietoje sutaupyti energijos neišeina. Vienintelė išeitis – naudoti 3.3 V įtampa maitinamą mikrovaldiklį. \ref{fig:headtracker_5min} pav. matome galvos orientacijos sekimo įrenginio elektros srovės suvartojimo priklausomybę nuo laiko įjungimo metu, bet po 5 minučių nuo įrenginio veiklos pradžios.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=400px]{img/head_tracker_5min.png}
-  \caption{Galvos orientacijos sekimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko po 5 minučių darbo.}
+  \caption{Galvos orientacijos sekimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko, po 5 minučių darbo}
   \label{fig:headtracker_5min}
 \end{figure}
 
-Kaip matoma iš \ref{fig:headtracker_5min} paveikslo, elektros srovės suvartojimas įrenginio įjungimo metu, bet po 5 minučių darbo padidėja. Taip yra todėl, kad galvos orientacijos sekimo įrenginio temperatūra po 5 minučių darbo šiek tiek pakyla. Srovės suvartojimo padidėjimas siekia maždaug 20 mA.
+Kaip matoma iš \ref{fig:headtracker_5min} pav., elektros srovės suvartojimas įrenginio įjungimo metu, bet po 5 minučių darbo padidėja. Taip yra todėl, kad galvos orientacijos sekimo įrenginio temperatūra po 5 minučių darbo šiek tiek pakyla. Srovės suvartojimo padidėjimas siekia maždaug 20 mA.
 
 \subsection{Garso apdorojimo įrenginio patikra}
 
-Šis poskiris skirtas apibendrinti garso apdorojimo įrenginio veikimą bei jo charakteristikas.
+Šis poskyris skirtas apibendrinti garso apdorojimo įrenginio veikimą bei jo charakteristikas.
 
 \subsubsection{Energijos suvartojimo patikra}
 
-\ref{fig:sound_energy} paveiksle pavaizduota garso apdorojimo įrenginio srovės suvartojimo priklausomybė nuo laiko šalto paleidimo metu.
+\ref{fig:sound_energy} pav. pavaizduota garso apdorojimo įrenginio srovės suvartojimo priklausomybė nuo laiko šalto paleidimo metu.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=400px]{img/sound_energy.png}
-  \caption{Garso apdorojimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko šalto paleidimo metu.}
+  \caption{Garso apdorojimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko šalto paleidimo metu}
   \label{fig:sound_energy}
 \end{figure}
 
-Kaip matome iš \ref{fig:sound_energy} paveikslo maksimalus elektros srovės suvartojimas siekia iki 85 mA. Didžiąją dalį šios srovės suvartojimo sudaro įtampos stabilizatorius. Likusias dalis – mikrovaldiklis ir skaitmeninis-analoginis keitiklis. \ref{fig:sound_energy_5min} paveiksle pavaizduota srovės suvartojimo priklausomybė nuo laiko įjungimo metu po 5 minučių įrenginio darbo.
+Kaip matome iš \ref{fig:sound_energy} pav. maksimalus elektros srovės suvartojimas siekia iki 85 mA. Didžiąją dalį šios srovės suvartojimo sudaro įtampos stabilizatorius. Likusias dalis – mikrovaldiklis ir skaitmeninis-analoginis keitiklis. \ref{fig:sound_energy_5min} pav. pavaizduota srovės suvartojimo priklausomybė nuo laiko įjungimo metu, po 5 minučių įrenginio darbo.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=400px]{img/sound_energy_5min.png}
-  \caption{Garso apdorojimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko po 5 minučių darbo.}
+  \caption{Garso apdorojimo įrenginio vartojamos elektros srovės priklausomybė nuo laiko, po 5 minučių darbo}
   \label{fig:sound_energy_5min}
 \end{figure}
 
-Kaip matome iš \ref{fig:sound_energy_5min} paveikslo, garso apdorojimo įrenginio srovės suvartojimas po 5 minučių įrenginio darbo padidėja tik apie 5 mA. Taip yra todėl, kad įtaisas yra geriau suprojektuotas ir neatsiranda nereikalingų įtampos kritimų, o tuo pačiu ir energijos išsklaidymo šilumos pavidalu. Taip pat čia nėra duomenų perdavimo modulio \textit{BTM222}, kuris suvartoja gana nemažai elektros energijos.
+Kaip matome iš \ref{fig:sound_energy_5min} pav., garso apdorojimo įrenginio srovės suvartojimas, po 5 minučių įrenginio darbo padidėja tik apie 5 mA. Taip yra todėl, kad įtaisas yra geriau suprojektuotas ir neatsiranda nereikalingų įtampos kritimų, o tuo pačiu ir energijos išsklaidymo šilumos pavidalu. Taip pat čia nėra duomenų perdavimo modulio BTM222, kuris suvartoja gana nemažai elektros energijos.
 
 \newpage
 
@@ -632,7 +632,7 @@ Kaip matome iš \ref{fig:sound_energy_5min} paveikslo, garso apdorojimo įrengin
 
 Garso apdorojimo įrenginys mažiau kaista, lyginant su galvos orientacijos sekimo įrenginiu bei mikrovaldiklis ir periferija maitinami 3.3 V elektros įtampa, todėl įtaisas yra ganėtinai ekonomiškesnis.
 
-Kol kas visos sistemos elektroninė dalis yra tik prototipo stadijoje, todėl visi atlikti matavimai yra preliminarūs ir ateityje keisis. Visos sistemos maksimalus elektros srovės suvartojimas tesiekia tik apie 340 mA, o tai atitinka užduoties rėžius (500 mA). Esamą srovės suvartojimą dar galima sumažinti minėtais būdais, bet tai yra ateities planai ir šiuo metu tai nėra ypatingai aktualu, norint įrodyti ir pademonstruoti sistemos veikimą.
+Kol kas visos sistemos elektroninė dalis yra tik prototipo stadijoje, todėl visi atlikti matavimai yra preliminarūs ir ateityje keisis. Visos sistemos maksimalus elektros srovės suvartojimas tesiekia tik apie 340 mA, o tai atitinka užduoties reikalavimus (500 mA). Esamą srovės suvartojimą dar galima sumažinti minėtais būdais, bet tai yra ateities planai ir šiuo metu tai nėra ypatingai aktualu, norint įrodyti ir pademonstruoti sistemos veikimą.
 
 
 \end{document}
