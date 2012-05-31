@@ -304,11 +304,11 @@ _{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=150px]{img/quaternion_frame.png}
-  \caption{Dviejų rėmų orientacijos kitimas vienas kito atžvilgiu.}
+  \caption{Dviejų rėmų orientacijos kitimas vienas kito atžvilgiu}
   \label{fig:quaternion_2}
 \end{figure}
 
-Paveikslas \ref{fig:quaternion_2} nusako rėmo\footnote{Geometrijoje objekto (linijos, plokštumos ar kietojo kūno) orientacija erdvėje yra dažnai pateikiama kaip vieno rėmo orientacija kito rėmo atžvilgiu, tokiu atveju pirmasis rėmas vadinamas atskaitos rėmu (angl. \textit{frame of referrence})} (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
+\ref{fig:quaternion_2} pav. nusako rėmo\footnote{Geometrijoje objekto (linijos, plokštumos ar kietojo kūno) orientacija erdvėje yra dažnai pateikiama kaip vieno rėmo orientacija kito rėmo atžvilgiu, tokiu atveju pirmasis rėmas vadinamas atskaitos rėmu (angl. \textit{frame of referrence}).} (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
 
 \begin{equation}
 _{B}^{A}R = \begin{bmatrix} 
@@ -321,9 +321,9 @@ _{B}^{A}R = \begin{bmatrix}
 
 Taipogi kvaternioną galima išreikšti pasukimo matricos pavidalu \ref{equ:rotation_matrix}, tai suteikia lankstumo skaičiuojant pasisukimą.
 
-Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio sistemos kampais arba atliekant operacijas susijusias su kampais. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu dėl anksčiau minėto ašių užsiblokavimo. 
+Matricinė kvaterniono išraiška labai patogi norint orientaciją paversti Eulerio sistemos kampais arba atliekant operacijas, susijusias su kampais. Tačiau saugoti orientacijos informaciją tokiu pavidalu nėra patogu dėl anksčiau minėto ašių užsiblokavimo. 
 
-Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reikalingi du rėmai, pirmasis atskaitos rėmas (angl. \textit{reference frame}) antrasis -- sistemos rėmas. Šiame darbe rėmu A (atskaitos rėmas) bus laikoma žemė, o rėmas B – galvos orientacijos įrenginys (sistemos rėmas).
+Kaip matoma iš \ref{fig:quaternion_2} pav., apskaičiuoti kvaternionams reikalingi du rėmai, pirmasis atskaitos rėmas (angl. \textit{reference frame}), antrasis -- sistemos rėmas. Šiame darbe rėmu A (atskaitos rėmas) bus laikoma žemė, o rėmas B – galvos orientacijos įrenginys (sistemos rėmas).
 
 \begin{figure}[htbp]
   \centering
@@ -332,11 +332,11 @@ Kaip matoma iš paveikslo \ref{fig:quaternion_2} apskaičiuot kvaternionams reik
   \label{fig:madgwick}
 \end{figure}
 
-Bendra filtro schema pavaizduota \ref{fig:madgwick} pav. Kur $^{S}\hat{m}_{t}$ magnetometro duomenys, $^{S}\hat{a}_{t}$ – akselerometro, $^{S}\hat{\omega}_{t}$  – giroskopo parodymai. \ref{fig:madgwick} pav. parodo pilnąjį Madgwicko filtrą MARG (angl. \textit{Magnetic, Angular Rate, and Gravity}) sistemai. Grupė 1 skirta pašalinti magnetometro magnetinius triukšmus (angl. \textit{Magnetic distortion}), Grupė 2 – skirta pasinaudojant akselerometro ir magnetometro duomenimis sumažinti giroskopo dreifą. Tokiu būdu filtras įgauna magnetometro triukšmo ir giroskopo dreifo kompensavimo savybes. Filtro rezultatas – $_{E}^{S}\hat{q}_{est,t}$ pilna objekto orientacija žemės atžvilgiu išreikšta kvaternionu. 
+Bendra filtro schema pavaizduota \ref{fig:madgwick} pav. Kur $^{S}\hat{m}_{t}$ magnetometro duomenys, $^{S}\hat{a}_{t}$ – akselerometro, $^{S}\hat{\omega}_{t}$  – giroskopo parodymai. \ref{fig:madgwick} pav. parodo pilnąjį Madgwicko filtrą MARG sistemai. 1 grupė skirta pašalinti magnetometro magnetinius triukšmus (angl. \textit{Magnetic distortion}), 2 grupė skirta pasinaudojant akselerometro ir magnetometro duomenimis sumažinti giroskopo dreifą. Tokiu būdu filtras įgauna magnetometro triukšmo ir giroskopo dreifo kompensavimo savybes. Filtro rezultatas – $_{E}^{S}\hat{q}_{est,t}$ pilna objekto orientacija žemės atžvilgiu išreikšta kvaternionu. 
 
 \subsection{Garso apdorojimo mechanizmas}
 
-Garso apdorojimo įrenginio programinę įrangą sudaro dvi dalys – programinė įranga asmeniniame kompiuteryje bei programinė įranga, esanti pačiame garso apdorojimo įrenginyje. Norint įgyvendinti aparatinio lygmens garso išvestį, visų pirma, reikia skaitmeninio garso duomenų bei aparatinės įrangos skirtos skaitmeninį garsą paversti į analoginį (SAK – skaitmeninis analoginis keitiklis). Skaitmeninio garso informacija bei duomenys siunčiami naudojant RS232 protokolą. Šių duomenų šaltinis – asmeninis kompiuteris su savo programine įranga. Skaitmeninio garso duomenų siuntimui į SAK naudojamas I2S protokolas. I2S – tai nuoseklusis duomenų perdavimo protokolas, kuris buvo sukurtas sujungti skaitmeninio garso įrenginius tarpusavyje. Jis plačiai taikomas garso atkūrimo ir įrašymo pramonėje (\textit{blue-ray}, \textit{CD}, \textit{DVD} grotuvuose ir kt.). Dažniausiai protokolas naudojamas sujungus tam tikro formato dekoderius ir skaitmeninius-analoginius keitiklius tarpusavyje. Protokolo fizinis lygmuo susideda iš trijų linijų – valdančioji bitų perdavimo dažnio, kanalo pasirinkimo bei duomenų perdavimo. Duomenys šiuo protokolu siunčiami sinchroniniu būdu. T. y. duomenys nuskaitomi tik esant aukštam valdančiosios bitų perdavimo linijos įtampos lygiui. Kanalo parinkimas (kairiojo ar dešiniojo) vyksta keičiant kanalo parinkimo linijos įtampos lygį. Šis keitimas privalo būti atliktas prieš perduodant paskutinį esamojo kanalo duomenų bitą. \ref{fig:garso_apdorojimas} pav. pavaizduota garso apdorojimo įrenginio programos algoritmo blokinė diagrama.
+Garso apdorojimo įrenginio programinę įrangą sudaro dvi dalys – programinė įranga asmeniniame kompiuteryje bei programinė įranga, esanti pačiame garso apdorojimo įrenginyje. Norint įgyvendinti aparatinio lygmens garso išvestį, visų pirma, reikia skaitmeninio garso duomenų bei aparatinės įrangos, skirtos skaitmeninį garsą paversti į analoginį (SAK – skaitmeninis analoginis keitiklis). Skaitmeninio garso informacija bei duomenys siunčiami naudojant RS232 protokolą. Šių duomenų šaltinis – asmeninis kompiuteris su savo programine įranga. Skaitmeninio garso duomenų siuntimui į SAK naudojamas I2S protokolas. I2S – tai nuoseklusis duomenų perdavimo protokolas, kuris buvo sukurtas sujungti skaitmeninio garso įrenginius tarpusavyje. Jis plačiai taikomas garso atkūrimo ir įrašymo pramonėje (\textit{blue-ray}, CD, {DVD grotuvuose ir kt.). Dažniausiai protokolas naudojamas sujungus tam tikro formato dekoderius ir skaitmeninius-analoginius keitiklius tarpusavyje. Protokolo fizinis lygmuo susideda iš trijų linijų – valdančioji bitų perdavimo dažnio, kanalo pasirinkimo bei duomenų perdavimo. Duomenys šiuo protokolu siunčiami sinchroniniu būdu. T. y. duomenys nuskaitomi tik esant aukštam valdančiosios bitų perdavimo linijos įtampos lygiui. Kanalo parinkimas (kairiojo ar dešiniojo) vyksta keičiant kanalo parinkimo linijos įtampos lygį. Šis keitimas privalo būti atliktas prieš perduodant paskutinį esamojo kanalo duomenų bitą. \ref{fig:garso_apdorojimas} pav. pavaizduota garso apdorojimo įrenginio programos algoritmo blokinė diagrama.
 
 \begin{figure}[!ht]
   \centering
@@ -345,7 +345,7 @@ Garso apdorojimo įrenginio programinę įrangą sudaro dvi dalys – programin�
   \label{fig:garso_apdorojimas}
 \end{figure}
 
-Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda nuo RS232 bei I2S protokolų įgalinimo. STM32F407-VGT, kaip ir 8 bitų AVR mikrovaldiklis, turi aparatinio lygmens RS232 protokolą. Pastarajame naudojamas 8N1 standartas – 8 duomenų perdavimo bitai, 1 start bitas, 1 stop bitas ir jokio lyginumo bito. Kaip ir buvo minėta anksčiau, skaitmeninio garso duomenų perdavimui naudojamas I2S protokolas. Pasirinktas 32 bitų mikrovaldiklis turi aparatinio lygmens I2S protokolą. Taigi, norint įgalinti protokolą, reikia įrašyti tam tikras vertes į atitinkamus registrus programiškai. Toliau programos algoritme seka „handshake“ signalas. Tai tam tikras sutartinis „pasisveikinimo“ signalas siunčiamas RS232 protokolu asmeniniam kompiuteriui. Jeigu gaunamas teigiamas atsakymas, tuomet algoritmas tęsiamas. Jei negaunamas joks atsakymas, tikrinama ar praėjo 5 sekundės nuo „pasisveikinimo“ signalo išsiuntimo. Praėjus minėtam laikui registruojama programos algoritmo klaida ir programa yra užbaigiama. Jei 5 sekundės nepraėjo, tuomet toliau laukiamas atsakymas. Kai sulaukiamas „pasisveikinimo“ patvirtinimas, tuomet programos algoritmas tęsiamas toliau. Tolimesnė programos eiga -– gaunamas skaitmeninio garso duomenų aprašas. Pavyzdžiui -– 16 bit duomenys vienam kanalui, 44,1 kHz diskretizavimo dažnis. Gavus šį aprašą, sukonfigūruojamos garso išvesties funkcijos pagal gautą formatą. Toliau programa pereina prie begalinio ciklo, kuriame vyksta visos likusios operacijos galutiniam garso išvedimui į ausines. Visų pirma, per RS232 sąsają gaunamos WAV failo amplitudžių vertės. Sekančiame žingsnyje vyksta visos apdorojimo bei modifikavimo, pagal esamą žmogaus galvos orientaciją, operacijos. \textit{Matlab} kodo fragmente \ref{code:conv_sound} pateiktas pavizdys, kaip sąsukos būdu yra kodifikuojamas garsas. Visos modifikuotos amplitudžių vertės paruošiamos galutiniam panaudojimui ir saugomos rezultatų masyve. Vertės iš rezultatų masyvo paeiliui siunčiamos į skaitmeninį-analoginį keitiklį I2S protokolui.
+Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda nuo RS232 bei I2S protokolų įgalinimo. STM32F407-VGT, kaip ir 8 bitų AVR mikrovaldiklis, turi aparatinio lygmens RS232 protokolą. Pastarajame naudojamas 8N1 standartas – 8 duomenų perdavimo bitai, 1 start bitas, 1 stop bitas ir jokio lyginumo bito. Kaip ir buvo minėta anksčiau, skaitmeninio garso duomenų perdavimui naudojamas I2S protokolas. Pasirinktas 32 bitų mikrovaldiklis turi aparatinio lygmens I2S protokolą. Taigi, norint įgalinti protokolą, reikia įrašyti tam tikras vertes į atitinkamus registrus programiškai. Toliau programos algoritme seka „handshake“ signalas. Tai tam tikras sutartinis „pasisveikinimo“ signalas siunčiamas RS232 protokolu asmeniniam kompiuteriui. Jeigu gaunamas teigiamas atsakymas, tuomet algoritmas tęsiamas. Jei negaunamas joks atsakymas, tikrinama ar praėjo 5 sekundės nuo „pasisveikinimo“ signalo išsiuntimo. Praėjus minėtam laikui registruojama programos algoritmo klaida ir programa yra užbaigiama. Jei 5 sekundės nepraėjo, tuomet toliau laukiamas atsakymas. Kai sulaukiamas „pasisveikinimo“ patvirtinimas, programos algoritmas tęsiamas toliau. Tolimesnė programos eiga -– gaunamas skaitmeninio garso duomenų aprašas. Pavyzdžiui, 16 bit duomenys vienam kanalui, 44,1 kHz diskretizavimo dažnis. Gavus šį aprašą, sukonfigūruojamos garso išvesties funkcijos pagal gautą formatą. Toliau programa pereina prie begalinio ciklo, kuriame vyksta visos likusios operacijos galutiniam garso išvedimui į ausines. Visų pirma, per RS232 sąsają gaunamos WAV failo amplitudžių vertės. Sekančiame žingsnyje vyksta visos apdorojimo bei modifikavimo, pagal esamą žmogaus galvos orientaciją, operacijos. \textit{Matlab} kodo fragmente \ref{code:conv_sound} pateiktas pavizdys, kaip sąsukos būdu yra kodifikuojamas garsas. Visos modifikuotos amplitudžių vertės paruošiamos galutiniam panaudojimui ir saugomos rezultatų masyve. Vertės iš rezultatų masyvo paeiliui siunčiamos į skaitmeninį-analoginį keitiklį I2S protokolui.
 
 \begin{cfigure}
   \centering
@@ -358,7 +358,7 @@ Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda
 
 \subsection{Galvos sekimo įrenginys}
 
-Šiame poskyryje aptariamas galvos sekimo įrenginio programos algoritmas. \ref{fig:head_tracker} paveiksle pavaizduota algoritmo blokinė schema.
+Šiame poskyryje aptariamas galvos sekimo įrenginio programos algoritmas. \ref{fig:head_tracker} pav. pavaizduota algoritmo blokinė schema.
 
 \begin{figure}[!ht]
   \centering
@@ -367,30 +367,35 @@ Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda
   \label{fig:head_tracker}
 \end{figure}
 
-Kaip matome iš \ref{fig:head_tracker} paveikslo, programos kodo pradžioje vyksta kintamųjų sukūrimas bei naudojamų įėjimų/išėjimų nustatymas. Kadangi naudojamų jutiklių duomenų perdavimo standartinis protokolas yra \textit{I2C}, todėl reikia įgyvendinti \textit{I2C} protokolo nustatymo mikrovaldiklyje operacijas. Pasirinktas mikrovaldiklis \textit{Atmel Atmega8} savyje turi aparatinio lygio \textit{I2C} valdymo bloką. Pagal specifikacinį \textit{AVR} mikrovaldiklio aprašą, norint įgalinti \textit{I2C} protokolą, reikia nustatyti duomenų perdavimo dažnį. Pasirinktas dažnis – 400 kHz. Tolimesnis programos kodas – tai jutiklių pradinių parametrų nustatymas. Norint panaudoti \textit{bluetooth} duomenų perdavimo ryšį, naudojamas \textit{UART} protokolas. \textit{Atmega8} mirkovaldiklis taip pat turi aparatinio lygio \textit{UART} protokolo bloką. Taigi tinkamam pastarojo veikimui, reikia jį įgalinti programiškai kaip ir \textit{I2C} protokolą. Pasirinkta duomenų perdavimo sparta – 57600 bodų per sekundę.
-Giroskopo \textit{L3G4200D} pradiniai nustatymai:
+Kaip matome iš \ref{fig:head_tracker} pav., programos kodo pradžioje vyksta kintamųjų sukūrimas bei naudojamų įėjimų išėjimų nustatymas. Kadangi naudojamų jutiklių duomenų perdavimo standartinis protokolas yra I2C, todėl reikia įgyvendinti I2C protokolo nustatymo mikrovaldiklyje operacijas. Pasirinktas mikrovaldiklis \textit{Atmel Atmega8} savyje turi aparatinio lygio I2C valdymo bloką. Pagal specifikacinį AVR mikrovaldiklio aprašą, norint įgalinti I2C protokolą, reikia nustatyti duomenų perdavimo dažnį. Pasirinktas dažnis – 400 kHz. Tolimesnis programos kodas – tai jutiklių pradinių parametrų nustatymas. Norint panaudoti \textit{bluetooth} duomenų perdavimo ryšį, naudojamas UART protokolas. \textit{Atmega8} mirkovaldiklis taip pat turi aparatinio lygio UART protokolo bloką. Taigi tinkamam pastarojo veikimui, reikia jį įgalinti programiškai kaip ir I2C protokolą. Pasirinkta duomenų perdavimo sparta – 57 600 bodų per sekundę.
+Giroskopo L3G4200D pradiniai nustatymai:
 
 \begin{itemize}
-\item Energijos taupymo režimo išjungimas. T.y. jutiklio įjungimas
-Magnetometro \textit{LSM303DLH} pradiniai nustatymai:
-\item Parenkamas duomenų atnaujinimo dažnis – 75 Hz
-\item Parenkamas ±2,5 Gauss įėjimo diapazonas
-\item Parenkamas nenutrūkstantis duomenų atnaujinimas
+\item Energijos taupymo režimo išjungimas. T. y. jutiklio įjungimas.
+\end{itemsize}
+
+Magnetometro LSM303DLH pradiniai nustatymai:
+
+\begin{itemsize}
+\item Parenkamas duomenų atnaujinimo dažnis – 75 Hz.
+\item Parenkamas ±2,5 \textit{Gauss} įėjimo diapazonas.
+\item Parenkamas nenutrūkstantis duomenų atnaujinimas.
 \end{itemize}
 
-Akselerometro \textit{LSM303DLH} pradiniai nustatymai:
+Akselerometro LSM303DLH pradiniai nustatymai:
+
 \begin{itemize}
 \item Parenkamas 1000 Hz duomenų atnaujinimo dažnis
 \item Išjungiamas energijos taupymo veikimo režimas.
-\item Išjungiamas vidinis duomenų filtras 
-\item Nustatomas duomenų eiliškumas 8 bitų registruose
+\item Išjungiamas vidinis duomenų filtras. 
+\item Nustatomas duomenų eiliškumas 8 bitų registruose.
 \end{itemize}
 
-Atlikus jutiklių parametrų nustatymus, programos algoritmas pereina prie begalinio ciklo jutiklių duomenų nuskaitymui ir persiuntimui per \textit{bluetooth} ryšį. Duomenys nuskaitomi iš kiekvieno jutiklio šia eilės tvarka: akselerometro, magnetometro bei giroskopo duomenų nuskaitymas. Prieš kiekvieno jutiklio duomenų nuskaitymą yra laukiamas patvirtinimas, jog jutiklis yra pasirengęs perduoti duomenis. Todėl tikslaus duomenų atnaujinimo dažnio nustayti neįmanoma, nes kiekvieną ciklo iteraciją jutiklių pasirengimas perduoti duomenis gali skirtis. Per kiekvieną begalinio ciklo iteraciją nuskaitomos visos 3 jutiklių ašys – $X$,$Y$,$Z$. Kadangi pastarieji yra padidinto tikslumo (12 bitų), tai nuskaitant duomenis 8 bitų mikrovaldikliu \textit{I2C} protokolu, šiuos duomenis reikia apdoroti. Taip yra todėl, kad tiek jutiklių, tiek mikrovaldiklio registrai yra 8 bitų, bei \textit{I2C} protokolas perduoda tik 8 bitus duomenų vienos užklausos metu. Duomenų sujungimas šiuos atveju, tai tiesiog 8 aukščiausiųjų bitų perstūmimas į kairę lyginant su žemiausiais 8 bitais. Taip gaunamas 12 bitų tikslumas. Visi jutiklių duomenys po vienos ciklo iteracijos apjungiami į vieną string formato eilutę ir išsiunčiami bluetooth ryšiu, naudojant \textit{UART} protokolą.
+Atlikus jutiklių parametrų nustatymus, programos algoritmas pereina prie begalinio ciklo jutiklių duomenų nuskaitymui ir persiuntimui per \textit{bluetooth} ryšį. Duomenys nuskaitomi iš kiekvieno jutiklio šia eilės tvarka: akselerometro, magnetometro bei giroskopo duomenų nuskaitymas. Prieš kiekvieno jutiklio duomenų nuskaitymą yra laukiamas patvirtinimas, jog jutiklis yra pasirengęs perduoti duomenis. Todėl tikslaus duomenų atnaujinimo dažnio nustatyti neįmanoma, nes kiekvieną ciklo iteraciją jutiklių pasirengimas perduoti duomenis gali skirtis. Per kiekvieną begalinio ciklo iteraciją nuskaitomos visos 3 jutiklių ašys – $X$, $Y$, $Z$. Kadangi pastarieji yra padidinto tikslumo (12 bitų), tai nuskaitant duomenis 8 bitų mikrovaldikliu I2C protokolu, šiuos duomenis reikia apdoroti. Taip yra todėl, kad tiek jutiklių, tiek mikrovaldiklio registrai yra 8 bitų, bei I2C protokolas perduoda tik 8 bitus duomenų vienos užklausos metu. Duomenų sujungimas šiuo atveju, tai tiesiog 8 aukščiausiųjų bitų perstūmimas į kairę lyginant su žemiausiais 8 bitais. Taip gaunamas 12 bitų tikslumas. Visi jutiklių duomenys po vienos ciklo iteracijos apjungiami į vieną \textit{string} formato eilutę ir išsiunčiami \textit{bluetooth} ryšiu, naudojant UART protokolą.
 
-\subsection{Binaurainio garso efekto mechanizmo algoritmas}
+\subsection{Binauralinio garso efekto mechanizmo algoritmas}
 
-\ref{fig:binaural_schem} pav. iliustruoja sukurtą mechanizmą binauraliniam garsui generuoti. Kaip matoma iš \ref{fig:binaural_schem} pav. pateiktos schemos, pirmasis žingsnis turint originalaus garso duomenis yra apskaičiuoti KIA abiems ausims. Pagal gautą KIA funkciją sąsukos veiksmu modifikuojamas originalus garsas. Įvykdžius šį žingsnį vieno kanalo garsas tampa dvikanaliu. Gautas tarpinis garso signalas sujungiamas su parinktu HRTF filtru. Po šio žingsnio gaunamas binauralinis garso signalas.
+\ref{fig:binaural_schem} pav. iliustruoja sukurtą mechanizmą binauraliniam garsui generuoti. Kaip matoma iš \ref{fig:binaural_schem} pav. pateiktos schemos, pirmasis žingsnis turint originalaus garso duomenis yra apskaičiuoti KIA abiem ausims. Pagal gautą KIA funkciją sąsukos veiksmu modifikuojamas originalus garsas. Įvykdžius šį žingsnį vieno kanalo garsas tampa dvikanaliu. Gautas tarpinis garso signalas sujungiamas su parinktu HRTF filtru. Po šio žingsnio gaunamas binauralinis garso signalas.
 
 \begin{figure}[!ht]
   \centering
@@ -410,7 +415,7 @@ x_{i}=(-1)^{i}x_{S}+\left[ i+\frac{1-(-1)^{i}}{2}\right] x_{r}
 \label{equ:virtual_sounds}
 \end{equation}
 
-čia $x_{S}$ – tikrojo garso šaltinio x koordinatė, $x_{r}$ – kambario ilgis, $i$ – virtualaus garso šaltinio (atspindžio) eilės numeris. Atėmus iš virtualaus šaltinio $x$ koordinatės klausytojo taško $x$ koordinatę galima rasti atstumą $x$ ašyje tarp klausytojo ir virtualaus šaltisnio. Tai aprašo formulė \ref{equ:dist_x}, toliau sekančios formulės 4.5 ir 4.6 aprašo atstumą tarp klausytojo ir garso šaltinio $y$ ir $z$ ašyse atitinkamai:
+čia $x_{S}$ – tikrojo garso šaltinio x koordinatė, $x_{r}$ – kambario ilgis, $i$ – virtualaus garso šaltinio (atspindžio) eilės numeris. Atėmus iš virtualaus šaltinio $x$ koordinatės klausytojo taško $x$ koordinatę, galima rasti atstumą $x$ ašyje tarp klausytojo ir virtualaus šaltinio. Tai aprašo formulė \ref{equ:dist_x}, toliau sekančios formulės 4.5 ir 4.6 aprašo atstumą tarp klausytojo ir garso šaltinio $y$ ir $z$ ašyse atitinkamai:
 
 \begin{equation}
 x_{i}=(-1)^{i}x_{S}+\left[ i+\frac{1-(-1)^{i}}{2}\right] x_{r}-x_{m}
@@ -427,7 +432,7 @@ x_{i}=(-1)^{i}x_{S}+\left[ i+\frac{1-(-1)^{i}}{2}\right] z_{r}-z_{m}
 \label{equ:dist_z}
 \end{equation}
 
-Rasti pilną atstumą kiekvienam virtualiam garso šaltiniui galima pasinaudojus Pitagoro teorema \ref{equ:pitagor} 
+Rasti pilną atstumą kiekvienam virtualiam garso šaltiniui galima pasinaudojus Pitagoro teorema \ref{equ:pitagor} .
 
 \begin{equation}
 d_{ijk}=\sqrt{x_{i}^{2}+y_{i}^{2}+z_{i}^{2}}
@@ -452,21 +457,21 @@ a_{ijk}= \left\{
 \label{equ:unit_impulse_resp_funct}
 \end{equation}
 
-Šiame žingsnyje gaunama aibė atspindžių kurioje kiekvienas atspindys turi impulsą lygu 1, kai $u_{ijk}=0$. Tikrasis garso bangos impulsas mažėja priklausomai nuo atstumo tarp šaltinio ir kliūčių pakeliui. Sekantys žingsniai ištaiso šią problemą. Garso impulsas yra atvirkščiai proporcingas atstumui tarp garso šaltinio ir klausytojo \ref{equ:unit_impulse_resp_corrected}.
+Šiame žingsnyje gaunama aibė atspindžių, kurioje kiekvienas atspindys turi impulsą lygu 1, kai $u_{ijk}=0$. Tikrasis garso bangos impulsas mažėja priklausomai nuo atstumo tarp šaltinio ir kliūčių pakeliui. Sekantys žingsniai ištaiso šią problemą. Garso impulsas yra atvirkščiai proporcingas atstumui tarp garso šaltinio ir klausytojo \ref{equ:unit_impulse_resp_corrected}.
 
 \begin{equation}
 b_{ijk}	\sim\frac{1}{d_{ijk}}
 \label{equ:unit_impulse_resp_corrected}
 \end{equation}
 
-Kitas svarbus parametras yra garso atspindžio atsispindėjimų skaičius. Jei visų sienų atspindžių koeficientai vienodi, galima paimti atspindžio koeficientą $r_{w}$ keliant laipsniu $n$, kur $n$ yra bendras atspindžių skaičius gauname $n=|i|+|j|+|k|$. Taigi atsispindėjimų skaičiui apskaičiuoti taikytina formulė \ref{equ:atspindziu_sk}:
+Kitas svarbus parametras yra garso atspindžio atsispindėjimų skaičius. Jei visų sienų atspindžių koeficientai vienodi, galima paimti atspindžio koeficientą $r_{w}$ keliant laipsniu $n$, kur $n$ yra bendras atspindžių skaičius, gauname $n=|i|+|j|+|k|$. Taigi atsispindėjimų skaičiui apskaičiuoti taikytina formulė \ref{equ:atspindziu_sk}:
 
 \begin{equation}
 r_{ijk}	= r_{w}^{|i|+|j|+|k|}
 \label{equ:atspindziu_sk}
 \end{equation}
 
-Taigi kad gauti pilnąjį signalo impulsą, reikia sudauginti \ref{equ:unit_impulse_resp_corrected} ir \ref{equ:atspindziu_sk} formules, taip gaunama formulė \ref{equ:full_impulse}).
+Kad gauti pilnąjį signalo impulsą, reikia sudauginti \ref{equ:unit_impulse_resp_corrected} ir \ref{equ:atspindziu_sk} formules, taip gaunama formulė \ref{equ:full_impulse}.
 
 \begin{equation}
 e_{ijk}	= b_{ijk} r_{ijk}
