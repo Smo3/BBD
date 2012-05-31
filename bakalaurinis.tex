@@ -79,7 +79,7 @@ Kalbant apie binauralinio garso generavimą realiu laiku, paieškos rezultatai s
   \label{fig:C6713_dsk_board}
 \end{figure}
 
-Šios plokštės mikrovaldiklis dirba 225 MHz dažniu ir pasiekia 1800 milijonų instrukcijų per sekundę spartą. Taip pat ši plokštė gali atkurti aukštos kokybės 24 bitų skaitmeninį stereogarsą, turi 512 kB \textit{Flash} bei 16 MB SDRAM atminties. JTAG\footnote{JTAG -- programavimo ir testavimo jungtis.} prieinamas per USB jungtį.
+Šios plokštės mikrovaldiklis dirba 225 MHz dažniu ir pasiekia 1800 milijonų instrukcijų per sekundę spartą. Taip pat ši plokštė gali atkurti aukštos kokybės 24 bitų skaitmeninį stereogarsą, turi 512 kB \textit{Flash} bei 16 MB SDRAM atminties. JTAG\footnote{  JTAG -- programavimo ir testavimo jungtis.} prieinamas per USB jungtį.
 
 Kaip teigia gaminio kūrėjai, jie generuoja binauralinį garsą naudojant specialų stereo filtrą suprogramuotą minėtoje plokštėje. Programinė įranga naudoja HRTF sugeneruotas \textit{Floridos tarptautinio universiteto} asmenų (nepaminėta kieno). Dviejų kanalų išėjimui panaudotos 12 \textit{HRTF} funkcijų, kurios taip pat nebuvo sugeneruotos projekto autorių. 
 
@@ -291,7 +291,7 @@ Garso apdorojimo įrenginys – tai baigiamojo bakalauro darbo metu sukurta įte
 
 Visi šie trys davikliai turi savo stipriąsias ir silpnąsias puses, tačiau \textit{sensor fusion} algoritmai padeda padidinti galutinių duomenų tikslumą. Dažniausiai naudojamas filtras – Kalmano, tačiau dėl didelio matematinio skaičiavimo kiekio (kuris neigiamai įtakoja bendrą mažos galios įterptinės sistemos greitaveiką) šiame darbe buvo pasirinktas paprastesnis \textit{Madgwick sensor fusion} filtras. Palyginus su Kalmano filtru, Madgwicko filtras turi tik vieną žingsnį, per kurį yra apskaičiuojami galutiniai duomenis, atsisakius nuspėjimo ir korekcijos žingsnių (kurie naudojami Kalmano filtre) sutaupomas laikas, todėl padidėja greitaveika. Tačiau atsisakius prieš tai minėtų dviejų žingsnių suprastėja filtro savybės, nes neatsižvelgiama į prieš tai buvusius duomenis.
 
-Madgwicko filtre orientacijai nusakyti naudojami kvaternionai\footnote{Kvaternionas (lot. \textit{quattor} – keturi) – skaičių aibė, nekomutatyvus kompleksinių skaičių aibės praplėtimas. }, tokiu būdu išvengiamas ašių užsiblokavimo (angl. \textit{gimbal lock}) efektas. Kvaternionas savo paprasčiausioje formoje aprašomas formule \ref{quaterion_1}, kur $r_{x}$, $r_{y}$, $r_{z}$ yra vektoriaus $r$ kampų reikšmės, $\theta$ – pasukimo kampas, $q_{w}$, $q_{x}$, $q_{y}$, $q_{z}$ – kvaterniono $w$, $x$, $y$, $z$ dedamosios. 
+Madgwicko filtre orientacijai nusakyti naudojami kvaternionai\footnote{  Kvaternionas (lot. \textit{quattor} – keturi) – skaičių aibė, nekomutatyvus kompleksinių skaičių aibės praplėtimas. }, tokiu būdu išvengiamas ašių užsiblokavimo (angl. \textit{gimbal lock}) efektas. Kvaternionas savo paprasčiausioje formoje aprašomas formule \ref{quaterion_1}, kur $r_{x}$, $r_{y}$, $r_{z}$ yra vektoriaus $r$ kampų reikšmės, $\theta$ – pasukimo kampas, $q_{w}$, $q_{x}$, $q_{y}$, $q_{z}$ – kvaterniono $w$, $x$, $y$, $z$ dedamosios. 
 
 \begin{equation}
 _{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
@@ -308,7 +308,7 @@ _{B}^{A}\hat{q}= \begin{bmatrix} q_{1} & q_{2} & q_{3} & q_{4}
   \label{fig:quaternion_2}
 \end{figure}
 
-\ref{fig:quaternion_2} pav. nusako rėmo\footnote{Geometrijoje objekto (linijos, plokštumos ar kietojo kūno) orientacija erdvėje yra dažnai pateikiama kaip vieno rėmo orientacija kito rėmo atžvilgiu, tokiu atveju pirmasis rėmas vadinamas atskaitos rėmu (angl. \textit{frame of referrence}).} (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
+\ref{fig:quaternion_2} pav. nusako rėmo\footnote{  Geometrijoje objekto (linijos, plokštumos ar kietojo kūno) orientacija erdvėje yra dažnai pateikiama kaip vieno rėmo orientacija kito rėmo atžvilgiu, tokiu atveju pirmasis rėmas vadinamas atskaitos rėmu (angl. \textit{frame of referrence}).} (angl. \textit{frame}) B orientaciją, jį pasukus kampu $\theta$ pagal $A_{\hat{r}}$  ašį, kai pradinė rėmo B orientacija buvo sutapusi su rėmo A orientacija.
 
 \begin{equation}
 _{B}^{A}R = \begin{bmatrix} 
@@ -345,7 +345,7 @@ Garso apdorojimo įrenginio programinę įrangą sudaro dvi dalys – programin�
   \label{fig:garso_apdorojimas}
 \end{figure}
 
-Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda nuo RS232 bei I2S protokolų įgalinimo. STM32F407-VGT, kaip ir 8 bitų AVR mikrovaldiklis, turi aparatinio lygmens RS232 protokolą. Pastarajame naudojamas 8N1 standartas – 8 duomenų perdavimo bitai, 1 start bitas, 1 stop bitas ir jokio lyginumo bito. Kaip ir buvo minėta anksčiau, skaitmeninio garso duomenų perdavimui naudojamas I2S protokolas. Pasirinktas 32 bitų mikrovaldiklis turi aparatinio lygmens I2S protokolą. Taigi, norint įgalinti protokolą, reikia įrašyti tam tikras vertes į atitinkamus registrus programiškai. Toliau programos algoritme seka „handshake“ signalas. Tai tam tikras sutartinis „pasisveikinimo“ signalas siunčiamas RS232 protokolu asmeniniam kompiuteriui. Jeigu gaunamas teigiamas atsakymas, tuomet algoritmas tęsiamas. Jei negaunamas joks atsakymas, tikrinama ar praėjo 5 sekundės nuo „pasisveikinimo“ signalo išsiuntimo. Praėjus minėtam laikui registruojama programos algoritmo klaida ir programa yra užbaigiama. Jei 5 sekundės nepraėjo, tuomet toliau laukiamas atsakymas. Kai sulaukiamas „pasisveikinimo“ patvirtinimas, programos algoritmas tęsiamas toliau. Tolimesnė programos eiga -– gaunamas skaitmeninio garso duomenų aprašas. Pavyzdžiui, 16 bit duomenys vienam kanalui, 44,1 kHz diskretizavimo dažnis. Gavus šį aprašą, sukonfigūruojamos garso išvesties funkcijos pagal gautą formatą. Toliau programa pereina prie begalinio ciklo, kuriame vyksta visos likusios operacijos galutiniam garso išvedimui į ausines. Visų pirma, per RS232 sąsają gaunamos WAV failo amplitudžių vertės. Sekančiame žingsnyje vyksta visos apdorojimo bei modifikavimo, pagal esamą žmogaus galvos orientaciją, operacijos. \textit{Matlab} kodo fragmente \ref{code:conv_sound} pateiktas pavizdys, kaip sąsukos būdu yra kodifikuojamas garsas. Visos modifikuotos amplitudžių vertės paruošiamos galutiniam panaudojimui ir saugomos rezultatų masyve. Vertės iš rezultatų masyvo paeiliui siunčiamos į skaitmeninį-analoginį keitiklį I2S protokolui.
+Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda nuo RS232 bei I2S protokolų įgalinimo. STM32F407-VGT, kaip ir 8 bitų AVR mikrovaldiklis, turi aparatinio lygmens RS232 protokolą. Pastarajame naudojamas 8N1 standartas – 8 duomenų perdavimo bitai, 1 start bitas, 1 stop bitas ir jokio lyginumo bito. Kaip ir buvo minėta anksčiau, skaitmeninio garso duomenų perdavimui naudojamas I2S protokolas. Pasirinktas 32 bitų mikrovaldiklis turi aparatinio lygmens I2S protokolą. Taigi, norint įgalinti protokolą, reikia įrašyti tam tikras vertes į atitinkamus registrus programiškai. Toliau programos algoritme seka „handshake“ signalas. Tai tam tikras sutartinis „pasisveikinimo“ signalas siunčiamas RS232 protokolu asmeniniam kompiuteriui. Jeigu gaunamas teigiamas atsakymas, tuomet algoritmas tęsiamas. Jei negaunamas joks atsakymas, tikrinama ar praėjo 5 sekundės nuo „pasisveikinimo“ signalo išsiuntimo. Praėjus minėtam laikui registruojama programos algoritmo klaida ir programa yra užbaigiama. Jei 5 sekundės nepraėjo, tuomet toliau laukiamas atsakymas. Kai sulaukiamas „pasisveikinimo“ patvirtinimas, programos algoritmas tęsiamas toliau. Tolimesnė programos eiga -– gaunamas skaitmeninio garso duomenų aprašas. Pavyzdžiui, 16 bit duomenys vienam kanalui, 44,1 kHz diskretizavimo dažnis. Gavus šį aprašą, sukonfigūruojamos garso išvesties funkcijos pagal gautą formatą. Toliau programa pereina prie begalinio ciklo, kuriame vyksta visos likusios operacijos galutiniam garso išvedimui į ausines. Visų pirma, per RS232 sąsają gaunamos WAV\footnote{  WAV (angl. \textit{Waveform Audio File Format}) -- neglaudintas audio bylos formatas.} failo amplitudžių vertės. Sekančiame žingsnyje vyksta visos apdorojimo bei modifikavimo, pagal esamą žmogaus galvos orientaciją, operacijos. \textit{Matlab} kodo fragmente \ref{code:conv_sound} pateiktas pavizdys, kaip sąsukos būdu yra kodifikuojamas garsas. Visos modifikuotos amplitudžių vertės paruošiamos galutiniam panaudojimui ir saugomos rezultatų masyve. Vertės iš rezultatų masyvo paeiliui siunčiamos į skaitmeninį-analoginį keitiklį I2S protokolui.
 
 \begin{cfigure}
   \centering
@@ -367,18 +367,19 @@ Kaip matoma iš \ref{fig:garso_apdorojimas} pav., programos algoritmas prasideda
   \label{fig:head_tracker}
 \end{figure}
 
-Kaip matome iš \ref{fig:head_tracker} pav., programos kodo pradžioje vyksta kintamųjų sukūrimas bei naudojamų įėjimų išėjimų nustatymas. Kadangi naudojamų jutiklių duomenų perdavimo standartinis protokolas yra I2C, todėl reikia įgyvendinti I2C protokolo nustatymo mikrovaldiklyje operacijas. Pasirinktas mikrovaldiklis \textit{Atmel Atmega8} savyje turi aparatinio lygio I2C valdymo bloką. Pagal specifikacinį AVR mikrovaldiklio aprašą, norint įgalinti I2C protokolą, reikia nustatyti duomenų perdavimo dažnį. Pasirinktas dažnis – 400 kHz. Tolimesnis programos kodas – tai jutiklių pradinių parametrų nustatymas. Norint panaudoti \textit{bluetooth} duomenų perdavimo ryšį, naudojamas UART protokolas. \textit{Atmega8} mirkovaldiklis taip pat turi aparatinio lygio UART protokolo bloką. Taigi tinkamam pastarojo veikimui, reikia jį įgalinti programiškai kaip ir I2C protokolą. Pasirinkta duomenų perdavimo sparta – 57 600 bodų per sekundę.
+Kaip matome iš \ref{fig:head_tracker} pav., programos kodo pradžioje vyksta kintamųjų sukūrimas bei naudojamų įėjimų išėjimų nustatymas. Kadangi naudojamų jutiklių duomenų perdavimo standartinis protokolas yra I2C\footnote{  I2C - (angl. \textit{Inter-Integrated Circuit}) -- tai Philips korporacijos sukurtas komunikavimo protokolas naudojamas žemo greičio įrenginiamssujungti su įterptinėmis sistemomis arba kompiuterių pagrindinėmis plokštėmis.}, todėl reikia įgyvendinti I2C protokolo nustatymo mikrovaldiklyje operacijas. Pasirinktas mikrovaldiklis \textit{Atmel Atmega8} savyje turi aparatinio lygio I2C valdymo bloką. Pagal specifikacinį AVR mikrovaldiklio aprašą, norint įgalinti I2C protokolą, reikia nustatyti duomenų perdavimo dažnį. Pasirinktas dažnis – 400 kHz. Tolimesnis programos kodas – tai jutiklių pradinių parametrų nustatymas. Norint panaudoti \textit{bluetooth} duomenų perdavimo ryšį, naudojamas UART protokolas. \textit{Atmega8} mirkovaldiklis taip pat turi aparatinio lygio UART protokolo bloką. Taigi tinkamam pastarojo veikimui, reikia jį įgalinti programiškai kaip ir I2C protokolą. Pasirinkta duomenų perdavimo sparta – 57 600 bodų per sekundę.
 Giroskopo L3G4200D pradiniai nustatymai:
 
 \begin{itemize}
 \item Energijos taupymo režimo išjungimas. T. y. jutiklio įjungimas.
-\end{itemsize}
+\item Nustatomi standartiniai registrų nustatymai.
+\end{itemize}
 
 Magnetometro LSM303DLH pradiniai nustatymai:
 
-\begin{itemsize}
+\begin{itemize}
 \item Parenkamas duomenų atnaujinimo dažnis – 75 Hz.
-\item Parenkamas ±2,5 \textit{Gauss} įėjimo diapazonas.
+\item Parenkamas ±2,5 Gausų įėjimo diapazonas.
 \item Parenkamas nenutrūkstantis duomenų atnaujinimas.
 \end{itemize}
 
@@ -568,7 +569,7 @@ Tai yra maksimalus įmanomas (teorinis) Atmega8 taktinis darbo dažnis. Šį da�
 
 \subsubsection{Jutiklių duomenų sintezės tikslumo tyrimas}
 
-Didelis dėmesys buvo skirtas jutiklių duomenų sintezei. Algoritmo tikslumas buvo tikrinamas pasitelkiant specialiai paruoštą stalą, tai iliustruoja \ref{fig:headtracker_test1} pav.
+Didelis dėmesys buvo skirtas jutiklių duomenų sintezei. Algoritmo tikslumas buvo tikrinamas pasitelkiant specialiai paruoštą stalą, tai iliustruoja \ref{fig:headtracker_test1} pav. Visuose šiame poskyryje pateiktuose grafikuose vertikali ašis atitinka garso stiprumą dB, horizontali -- mėginio numerį.
 
 \begin{figure}[htbp]
   \centering
@@ -581,14 +582,14 @@ Kaip matoma iš \ref{fig:headtracker_test1} pav. lapas suskirstytas į lygias da
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=350px]{img/head_tracker_testas.png}
+  \includegraphics[width=450px]{img/head_tracker_testas.png}
   \caption{Galvos orientacijos sekimo įrenginio testas}
   \label{fig:headtracker_test2}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=550px]{img/kampai.png}
+  \includegraphics[width=450px]{img/kampai.png}
   \caption{Galvos orientacijos sekimo įrenginio paklaidų grafikas}
   \label{fig:headtracker_test3}
 \end{figure}
@@ -645,11 +646,43 @@ Kaip matome iš \ref{fig:sound_energy_5min} pav., garso apdorojimo įrenginio sr
 
 \newpage
 
-\subsection{Išvados}
+\subsubsection{Garso generavimo tikslumas}
 
-Garso apdorojimo įrenginys mažiau kaista, lyginant su galvos orientacijos sekimo įrenginiu bei mikrovaldiklis ir periferija maitinami 3.3 V elektros įtampa, todėl įtaisas yra ganėtinai ekonomiškesnis.
+Kaip buvo minėta įvade, vienas svarbiausiu sistemos vertinimo kriterijų -- sugeneruoto binauralinio garso tikslumas. Jis vertinamas palyginus tikrąjį ir sugeneruota binauralinį garsą. Kaip tikrasis binauralinis garsas buvo paimtas ``Matchbox Rattle''. \ref{fig:garsas_orig} pav. iliustruoja 1,03 s. originalaus garso, tuo tarpu \ref{fig:garsas_gen} pav. demonstruoja darbo metu sistemos sugeneruotą binauralinio įrašo fragmentą.
 
-Kol kas visos sistemos elektroninė dalis yra tik prototipo stadijoje, todėl visi atlikti matavimai yra preliminarūs ir ateityje keisis. Visos sistemos maksimalus elektros srovės suvartojimas tesiekia tik apie 340 mA, o tai atitinka užduoties reikalavimus (500 mA). Esamą srovės suvartojimą dar galima sumažinti minėtais būdais, bet tai yra ateities planai ir šiuo metu tai nėra ypatingai aktualu, norint įrodyti ir pademonstruoti sistemos veikimą.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/garsas_originalus.png}
+  \caption{``Matchbox Rattle'' garso takelio fragmentas}
+  \label{fig:garsas_orig}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/garsas_generuotas.png}
+  \caption{Sugeneruoto garso takelio fragmentas}
+  \label{fig:garsas_gen}
+\end{figure}
+
+\ref{fig:garsas_diff} pav. iliustruoja garso takelių skirtumą. Kaip matome maksimalus skirtumas yra 0,5 dB. Skirtumas galimai atsirado dėl originalaus garso takelio glaudinimo (nes originalaus binauralinio įrašo WAV byla buvo gautą konvertavus ją iš MP3), taip pat skirtumą sukuria skirtumai tarp aprašyto virtualaus kambario ir įrašymo metu buvusio tikrojo kambario parametrų. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=400px]{img/garso_skirtumas.png}
+  \caption{Garso takelių skirtumas}
+  \label{fig:garsas_diff}
+\end{figure}
+
+
+\section{Rezultatų apibendrinimas. Išvados}
+
+Bakalaurinio darbo metu sukurta sistema pilnai atitinka visus darbo pradžioje iškeltus reikalavimus. Sistema yra tobulintina, tačiau pilnai atlieka visas funkcijas.
+
+Galvos sekimo įrenginyje naudojamas mažos galios \textit{bluetooth} siųstuvas -- imtuvas, tačiau įrenginys atitinka pagal Europos Bendrijos Tarybos direktyvą 89/336/EEB priimtą Elektromagnetinio suderinamumo techninį reglamentą (EMS reglamentas).
+
+Garso apdorojimo įrenginio terminės savybės yra geresnės lyginant su galvos orientacijos sekimo įrenginiu. Tai įtakoja mikrovaldiklis ir periferija kuri maitinama 3.3 V elektros įtampa, todėl įtaisas yra ganėtinai ekonomiškesnis ir mažiau kaista.
+
+Kol kas visos sistemos elektroninė dalis yra tik prototipo stadijoje, todėl visi atlikti matavimai yra preliminarūs ir ateityje gali keistis. Visos sistemos maksimalus elektros srovės suvartojimas tesiekia tik apie 340 mA, o tai atitinka užduoties reikalavimus (500 mA). Esamą srovės suvartojimą dar galima sumažinti anksčiau minėtais būdais, bet tai yra ateities planai ir šiuo metu tai nėra ypatingai aktualu, norint įrodyti ir pademonstruoti sistemos veikimą.
 
 
 \end{document}
